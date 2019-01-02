@@ -1,4 +1,4 @@
-<div><img class="alignnone size-full wp-image-141" alt="GRAP_small" src="http://www.jsosoft.com/wp-content/uploads/sites/2/GRAP_small1.png" width="150" height="146" /></div>
+<div><img class="alignnone size-full wp-image-141" alt="GRAP_small" src="http://www.jsosoft.com/dev/wp-content/uploads/2014/06/GRAP_small1.png" width="150" height="146" /></div>
 <h3>GRAP: A Data-Driven Gaming Framework for HTML5</h3>
 In the GRAP framework, all game characteristics are data-driven and managed in a single XML file. That means you can design an entire game with sprites, physics, collisions, animations, particles and emitters, 2D cameras and more all just by editing a simple XML data file that follows the MVC design pattern. Data driven programming frees you to develop and deliver ever more rapidly with ever more stable code; this is what the GRAP Framework offers.
 
@@ -20,11 +20,9 @@ View a demonstration of some of the features in GRAP <a title="GRAP Demo" href=
 
 The GRAP Framework is under active development. Please check back soon for updates to the demo on this site, more documentation and new demos.
 
-View all information, wikis and tutorials for GRAP at <a href="http://www.jsosoft.com">www.jsosoft.com</a>
+View a demonstration of some of the features in GRAP at <a href="https://www.jsosoft.com/dev/grap-automated-gaming-framework/">https://www.jsosoft.com/dev/grap-automated-gaming-framework/</a>
 
-View a demonstration of some of the features in GRAP at <a href="http://www.jsosoft.com/grap_demo/">www.jsosoft.com/grap_demo/</a>
-
-For updates and currents regarding GRAP please visit <a href="http://dev.jeremysomer.com">dev.jeremysomer.com</a>
+For updates and currents regarding JSO Software's current projects please visit <a href="http://jsosoft.com/dev">http://jsosoft.com/dev</a>
 
 <h3>Getting Started</h3>
 <ul>
@@ -37,7 +35,7 @@ For updates and currents regarding GRAP please visit <a href="http://dev.jeremys
 
 <h3>MIT License</h3>
 
-© 2014 Jeremy Somer <jeremy@jeremysomer.com>
+© 2014 Jeremy Somer <jeremy@jsosoft.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
