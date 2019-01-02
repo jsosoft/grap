@@ -23,10 +23,10 @@ For updates and currents regarding JSO Software's current projects please visit 
 <h3>Getting Started</h3>
 <ul>
 <li>Download the full <a href="https://github.com/somerj/GRAP/archive/master.zip">GitHub .zip file</a></li>
-<li>Ensure that the library references in the <a href="https://github.com/somerj/GRAP/blob/master/src/index.htm">index.htm</a> file are maintained in that order</li>
+<li>Ensure that the library references in the <a href="https://github.com/jsosoft/GRAP/blob/master/src/index.htm">index.htm</a> file are maintained in that order</li>
 <li>Ensure that there is a div tag where id="container" (already in index.htm) in your document body for the game to render
-<li>Start editing the contained <a href="https://github.com/somerj/GRAP/blob/master/src/data/gameData.xml">gameData.xml</a> file right away to edit the included demo game!</li>
-<li>Or replace that gameData.xml file with the blank one in the <a href="https://github.com/somerj/GRAP/tree/master/src/data_master">/data_master</a> directory to start a brand new game.</li>
+<li>Start editing the contained <a href="https://github.com/jsosoft/GRAP/blob/master/src/data/gameData.xml">gameData.xml</a> file right away to edit the included demo game!</li>
+<li>Or replace that gameData.xml file with the blank one in the <a href="https://github.com/jsosoft/GRAP/tree/master/src/data_master">/data_master</a> directory to start a brand new game.</li>
 </ul>
 
 <h3>MIT License</h3>
