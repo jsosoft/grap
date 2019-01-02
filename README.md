@@ -1,4 +1,4 @@
-<div><img class="alignnone size-full wp-image-141" alt="GRAP" src="http://www.jsosoft.com/dev/wp-content/uploads/2014/06/GRAP_small1.png" width="150" height="146" /></div>
+<div><img class="alignnone size-full wp-image-141" alt="GRAP" src=https://github.com/jsosoft/grap/src/img/grap-logo-small.png" width="150" height="146" /></div>
 <h3>GRAP: A Data-Driven Gaming Framework for HTML5</h3>
 In the GRAP framework, all game characteristics are data-driven and managed in a single XML file. That means you can design an entire game with sprites, physics, collisions, animations, particles and emitters, 2D cameras and more all just by editing a simple XML data file that follows the MVC design pattern. Data driven programming frees you to develop and deliver ever more rapidly with ever more stable code; this is what the GRAP Framework offers.
 
