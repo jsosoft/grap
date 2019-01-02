@@ -1,0 +1,453 @@
+﻿
+<root>
+
+	<settings>
+		<SYSTEM_ATTRIBUTES>(metatype|typename|inheritsFrom|content|tag|tagName|tagName|data|reverse|loop|dirty|_super)</SYSTEM_ATTRIBUTES>
+		<KEYWORDS>this,model,controller,view,parent</KEYWORDS>
+		<COLLISION_CATEGORIES>player,npc,explosion</COLLISION_CATEGORIES>
+		<GAME_REFRESH_FPS>60</GAME_REFRESH_FPS>
+		<GOAL_REFRESH_FPS>1</GOAL_REFRESH_FPS>
+		<RENDER_REFRESH_FPS>0</RENDER_REFRESH_FPS>
+		<PHYSICS_REFRESH_FPS>0</PHYSICS_REFRESH_FPS>
+		<VELOCITY_ITERATIONS>1</VELOCITY_ITERATIONS>
+		<POSITION_ITERATIONS>1</POSITION_ITERATIONS>
+		<KEY_EVENTS>keypress,keydown,keyup</KEY_EVENTS>
+		<MOUSE_EVENTS>mouseover,mouseout,mouseenter,mouseleave,mousemove,mousedown,mouseup,click,dblclick,dragstart,dragend</MOUSE_EVENTS>
+		<COLLIDE_EVENTS>collide,begincontact,endcontact,postsolve</COLLIDE_EVENTS>
+		<MOBILE_EVENTS>tap,taphold,swipe,swipeleft,swiperight,swipeup,swipedown,vmouseover,vmouseout,vmousedown,vmousemove,vclick,vmousecancel,orientationchange,scrollstart,scrollstop,pagebeforeload,pagebeforechange,pagechange,pagebeforeshow,pagebeforehide,pageshow,pagehide,pagecreate,pageinit,pageremove,updatelayout</MOBILE_EVENTS>
+		<ALT_MOBILE_EVENTS> orientationchange,pinch,rotate,swipemove,swipeone,swipetwo,swipethree,swipefour,swipeup,swiperightup,swiperight,swiperightdown,swipedown,swipeleftdown,swipeleft,swipeleftup,tapone,taptwo,tapthree,pinchopen,pinchclose,rotatecw,rotateccw,shake,shakefrontback,shakeleftright,shakeupdown</ALT_MOBILE_EVENTS> 
+	</settings>
+	
+	<resources>
+			<image typename="Sonic" src="Images/Sonic.png" alt="Sonic" width="304" height="288"></image>
+			<image typename="Mushroom" src="Images/Mushroom.png" alt="Mushroom" width="122" height="65"></image>
+			<image typename="Mushroom1" src="Images/Mushroom1.png" alt="Mushroom1" width="122" height="32"></image>
+			<image typename="Mushroom2" src="Images/Mushroom2.png" alt="Mushroom2" width="241" height="32"></image>
+			<image typename="Puffy" src="Images/puffy.png" alt="Puffy" width="96" height="128"></image>
+			<image typename="Pirate" src="Images/pirate.png" alt="Pirate" width="96" height="128"></image>
+			<image typename="Goopy" src="Images/goopy.png" alt="Goopy" width="96" height="128"></image>
+			<image typename="Ghost" src="Images/ghost.png" alt="Ghost" width="96" height="128"></image>
+			<image typename="Bullet" src="Images/Bullet.png" alt="Bullet" width="112" height="23"></image>
+			<image typename="Star" src="Images/Star.png" alt="Star" width="24" height="24"></image>
+	</resources>
+	
+	<meta>
+		<models>
+			<model typename="score">
+				<attribute typename="points" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="model">
+				<attribute typename="delay" dt="float" defaultValue="0"/>
+				<attribute typename="fps" dt="float" defaultValue="30"/>
+				<attribute typename="content" dt="string" defaultValue="circle"/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="inheritsFrom" dt="string" defaultValue="model"/>
+				<!--<attribute typename="typename" dt="string" defaultValue="model"/>-->
+			</model>
+			<model typename="event" inheritsFrom="model">
+				<attribute typename="eventname" dt="string" defaultValue=""/>
+				<attribute typename="action" dt="string" defaultValue=""/>
+			</model>
+			<model typename="keyEvent" inheritsFrom="event">
+				<attribute typename="keyname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="keyEvent_w" inheritsFrom="keyEvent" eventname="keypress" keyname="w" action="moveForward"></model>
+			<model typename="keyEvent_s" inheritsFrom="keyEvent" eventname="keypress" keyname="s" action="moveBack"></model>
+			<model typename="keyEvent_a" inheritsFrom="keyEvent" eventname="keypress" keyname="a" action="moveLeft"></model>
+			<model typename="keyEvent_d" inheritsFrom="keyEvent" eventname="keypress" keyname="d" action="moveRight"></model>
+			<model typename="keyEvent_c" inheritsFrom="keyEvent" eventname="keypress" keyname="c" action="jump"></model>
+			<model typename="keyDown_a" inheritsFrom="keyEvent" eventname="keydown" keyname="a" action="moveLeft"></model>
+			<model typename="keyDown_d" inheritsFrom="keyEvent" eventname="keydown" keyname="d" action="moveRight"></model>
+			<model typename="keyDown_c" inheritsFrom="keyEvent" eventname="keydown" keyname="c" action="jump"></model>
+			<model typename="keyDown_1" inheritsFrom="keyEvent" eventname="keydown" keyname="1" action="emit"></model>
+			<model typename="keyDown_2" inheritsFrom="keyEvent" eventname="keydown" keyname="2" action="emit"></model>
+			<model typename="keyUp_a" inheritsFrom="keyEvent" eventname="keyup" keyname="a" action="stopAnimation"></model>
+			<model typename="keyUp_d" inheritsFrom="keyEvent" eventname="keyup" keyname="d" action="stopAnimation"></model>
+			<model typename="swipeupEvent" inheritsFrom="event" eventname="swipeup" action="moveForward"></model>
+			<model typename="swipedownEvent" inheritsFrom="event" eventname="swipedown" action="moveBack"></model>
+			<model typename="swipeleftEvent" inheritsFrom="event" eventname="swipeleft" action="moveLeft"></model>
+			<model typename="swiperightEvent" inheritsFrom="event" eventname="swiperight" action="moveRight"></model>
+			<model typename="tapEvent" inheritsFrom="event" eventname="tap" action="jump"></model>
+			<model typename="mouseupEvent" inheritsFrom="event" eventname="mouseup" action="stopAnimation"></model>
+			<model typename="collideEvent" inheritsFrom="event">
+				<attribute typename="targettypes" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="npcCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="npcExplode" targettypes="bullet"></model>
+			<model typename="particleCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="bulletHide" targettypes="npc"></model>
+			
+			<model typename="action" inheritsFrom="model">
+				<attribute typename="actionname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="moveLeftAction" actionname="moveLeft" inheritsFrom="action"></model>
+			<model typename="moveRightAction" actionname="moveRight" inheritsFrom="action"></model>
+			<model typename="rotateLeftAction" actionname="rotateLeft" inheritsFrom="action"></model>
+			<model typename="rotateRightAction" actionname="rotateRight" inheritsFrom="action"></model>
+			<model typename="stopAnimationAction" actionname="stopAnimation" inheritsFrom="action"></model>
+			<model typename="jumpAction" actionname="jump" inheritsFrom="action"></model>
+			<model typename="emitAction" actionname="emit" inheritsFrom="action"></model>
+			<model typename="bulletHideAction" actionname="bulletHide" inheritsFrom="action"></model>
+			<model typename="npcExplodeAction" actionname="npcExplode" inheritsFrom="action"></model>
+			
+			<model typename="fn" inheritsFrom="model">
+				<attribute typename="targetId" dt="int" defaultValue=""/>
+				<attribute typename="targetName" dt="string" defaultValue=""/>
+				<attribute typename="targetTypename" dt="string" defaultValue=""/>
+				<attribute typename="targetMetatype" dt="string" defaultValue=""/>
+				<attribute typename="targetAttr" dt="string" defaultValue=""/>
+				<attribute typename="mapFn" dt="string" defaultValue=""/>
+				<attribute typename="param1" dt="string" defaultValue=""/>
+				<attribute typename="datatype" dt="string" defaultValue="int"/>
+				<attribute typename="arrayLength" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="setFn" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="add" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="subtract" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="multiply" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="divide" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="addV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="subtractV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="multiplyV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="dotV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="crossV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="emit" targetMetatype="controller" inheritsFrom="fn" targetTypename="emitter"></model>
+			<model typename="destroy" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="show" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="hide" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="applyForce" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyImpulse" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyTorque" targetMetatype="model" inheritsFrom="fn" mapFn="ApplyTorque"></model>
+			
+			<model typename="game" inheritsFrom="model" content="world" framework="box2d">
+				<attribute typename="scale" dt="b2vec2" defaultValue="800,3200" scaleFactor="30"/>
+				<attribute typename="goalResolution" dt="b2vec2" defaultValue="20,20"/>
+				<attribute typename="gravity" dt="b2vec2" defaultValue="0,.98" scaleFactor="30"/>
+				<attribute typename="listen" dt="int" defaultValue="1"/>
+			</model>
+			<model typename="object" inheritsFrom="model" position="0,0" scale="0,0" restitution=".3" framework="box2d">
+				<attribute typename="position" dt="b2vec2" getmap="GetPosition" setmap="SetPosition" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="screenPosition" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="orientation" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="maxVelocity" dt="b2vec2" defaultValue="3000,3000" scaleFactor="30"/>
+				<attribute typename="minVelocity" dt="b2vec2" defaultValue="-3000,-3000" scaleFactor="30"/>
+				<attribute typename="acceleration" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="rotation" getmap="GetAngle" setmap="SetAngle" dt="float" defaultValue="0"/>
+				<attribute typename="friction" dt="float" defaultValue="0"/>
+				<attribute typename="density" dt="float" defaultValue="0.3"/>
+				<attribute typename="restitution" dt="float" defaultValue=".5"/>
+				<attribute typename="linearVelocity" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="velocityNormal" dt="b2vec2" defaultValue="0"/>
+				<attribute typename="velocity" dt="b2vec2" getmap="GetLinearVelocity" setmap="SetLinearVelocity" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="linearDamping" dt="float" getmap="GetLinearDamping" setmap="SetLinearDamping" defaultValue="0"/>
+				<attribute typename="angularVelocity" dt="float" getmap="GetAngularVelocity" setmap="SetAngularVelocity" defaultValue="0"/>
+				<attribute typename="angularImpulse" dt="float" defaultValue="0"/>
+				<attribute typename="angularDamping" dt="float" defaultValue="0"/>
+				<attribute typename="bodyType" dt="int" getmap="GetType" setmap="SetType" defaultValue="0"/>
+				<attribute typename="fixedRotation" dt="bool" defaultValue="true"/>
+				<attribute typename="collidable" dt="bool" defaultValue="false"/>
+				<attribute typename="collisionlist" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="actor" inheritsFrom="object" bodyType="2">
+				<attribute typename="goal" dt="string" defaultValue=""/>
+				<attribute typename="goalradius" dt="int" defaultValue="3000"/>
+				<attribute typename="goalAvoid" dt="bool" defaultValue="false"/>
+				<attribute typename="goalmethod" dt="string" defaultValue="astar"/>
+				<attribute typename="goalstrength" dt="float" defaultValue="1"/>
+				<attribute typename="goalOrientationStrength" dt="float" defaultValue="30"/>
+				<attribute typename="goalOrientationThresh" dt="float" defaultValue="20"/>
+				<attribute typename="goalListen" dt="bool" defaultValue="true"/>
+			</model>
+			<model typename="player" inheritsFrom="actor" content="circle" position="100,200" velocity="0,0" scale="55,50" linearDamping=".5" density="1" restitution=".5" collidable="true" collisionlist="mushroom"></model>
+			<model typename="npc" inheritsFrom="particle" content="circle" position="80,210" velocity="3,3" maxVelocity="1000,10" scale="30,30" density="1" restitution=".3" goal="player" goalmethod="astar" goalstrength="5" collidable="true" collisionlist="player,mushroom,wall,bullet"></model>
+			
+			<model typename="image" inheritsFrom="object" content="rect" bodyType="1" position="0,0" scale="0,0"></model>
+			<model typename="wall" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="true" collisionlist="npc" restitution=".3" density=".3"></model>
+			<model typename="coveringwall" inheritsFrom="object" content="rect" position="0,0" scale="0,0"></model>
+		
+			<model typename="tween" inheritsFrom="model" fps=".1" cycle="none"></model>
+			<model typename="emitter" inheritsFrom="model" emitNumber="1">
+				<attribute typename="emitNumber" dt="int" defaultValue="1"/>
+				<attribute typename="maxCount" dt="int" defaultValue="0"/>
+				<attribute typename="totalCount" dt="int" defaultValue="0"/>
+				<attribute typename="cached" dt="bool" defaultValue="false"/>
+			</model>
+			<model typename="particle" inheritsFrom="actor" content="circle" position="0,0" scale="0,0" velocity="0,0" collidable="true" friction="0" restitution=".8"></model>
+			<model typename="mushroom" inheritsFrom="object" collidable="true" collisionlist="" content="rect"></model>
+			<model typename="barrierwall" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="true" collisionlist="player,cloud,lily,spinningring,spinningring1,spinningring2,spinningring3,spinningring4,weirdplant,buzzarddropping" restitution=".3" density=".3"></model>
+			<model typename="bullet" inheritsFrom="particle" density=".1" collisionList="npc"></model>
+			<model typename="debris" inheritsFrom="particle" cached="true" scale="10,10" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{(Math.random()*60)-30}, {-(Math.random()*100)}" fixedRotation="false" density=".3" collidable="false" collisionlist="mushroom,player" delay="2"></model>
+			
+			<model typename="level" inheritsFrom="model"></model>
+			<model typename="animation" inheritsFrom="model" framework="">
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="imagewidth" dt="int" defaultValue="0"/>
+				<attribute typename="imageheight" dt="int" defaultValue="0"/>
+				<attribute typename="cycle" dt="string" defaultValue="continuous"/>
+				<attribute typename="rowmap" dt="int" arrayLength="0" defaultValue=""/>
+				<attribute typename="animstep" dt="int" defaultValue="0"/>
+				<attribute typename="tween" dt="bool" defaultValue="false"/>
+				<attribute typename="direction" dt="int" defaultValue="1"/>
+				<attribute typename="currentrow" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="camera" inheritsFrom="actor" content="rect" position="0,0" scale="10,10" collidable="false" collisionlist="" rotation="0" bodyType="0"></model>
+		</models>
+	
+		<views>
+			<view typename="view">
+				<attribute typename="tag" dt="string" defaultValue="div"/>
+				<attribute typename="content" dt="string" defaultValue="rect"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+			</view>
+			<view typename="window" inheritsFrom="view" content="html">
+				<attribute typename="tagname" dt="string" defaultValue=""/>
+				<attribute typename="class" dt="string" defaultValue=""/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="0"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="0"/>
+				<attribute typename="zIndex" dt="int" defaultValue=""/>
+			</view>
+			<view typename="gameWindow" inheritsFrom="window" content="stage" tag="canvas" container="container" width="320" height="380" framework="kineticjs">
+				<attribute typename="container" dt="string" getmap="getContainer" setmap="setContainer" defaultValue="container"/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+			</view>
+			<view typename="statsWindow" inheritsFrom="window" content="html" tag="div" tagname="statsWindow" class=""></view>
+			<view typename="canvasElement" inheritsFrom="view" framework="kineticjs">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+				<attribute typename="offsetX" dt="float" getmap="getOffsetX" setmap="setOffsetX" defaultValue="{[view.width]/2}"/>
+				<attribute typename="offsetY" dt="float" getmap="getOffsetY" setmap="setOffsetY" defaultValue="{[view.height]/2}"/>
+				<attribute typename="crop" dt="int" arrayLength="2" defaultValue="0,0"/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="10"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="10"/>
+				<attribute typename="rotation" dt="float" getmap="getRotation" setmap="setRotation" defaultValue="0"/>
+				<attribute typename="opacity" dt="int" getmap="getOpacity" setmap="setOpacity" defaultValue="100"/>
+				<attribute typename="strokeWidth" dt="int" getmap="getStrokeWidth" setmap="setStrokeWidth" defaultValue=""/>
+				<attribute typename="fill" dt="string" getmap="getFill" setmap="setFill" defaultValue=""/>
+				<attribute typename="zIndex" dt="int" getmap="getZIndex" setmap="setZIndex" defaultValue="0"/>
+			</view>
+			<view typename="cameraView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="0" height="0" opacity="5" visible="false" zIndex="5"></view>
+			<view typename="itemView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" rotation="[model.rotation]" opacity="75" zIndex="2"></view>
+			<view typename="imageView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" rotation="[model.rotation]" opacity="100" zIndex="0"></view>
+			<view typename="tweenView" inheritsFrom="view"></view>
+			<view typename="wallView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" fill="#FF4719" zIndex="1"></view>
+			<view typename="animationView" inheritsFrom="view" visible="false">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+			</view>
+			<view typename="emitterView" inheritsFrom="view"></view>
+			<view typename="explosionEmitterView" inheritsFrom="emitterView"></view>
+			<view typename="particleView" inheritsFrom="canvasElement" content="image" zIndex="4"></view>
+			<view typename="debrisView" inheritsFrom="particleView" width="24" height="24" x="[model.screenPosition.x]" y="[model.screenPosition.y]" opacity="100"></view>
+			<view typename="playerView" inheritsFrom="canvasElement" content="image" imagename="Sonic" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="38" height="48" strokeWidth="0" rotation="0" zIndex="6"></view>
+			<view typename="puffyView" inheritsFrom="canvasElement" content="image" imagename="Puffy" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="pirateView" inheritsFrom="canvasElement" content="image" imagename="Pirate" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="goopyView" inheritsFrom="canvasElement" content="image" imagename="Goopy" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="ghostView" inheritsFrom="canvasElement" content="image" imagename="Ghost" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+		</views>
+	</meta>
+	<data>
+		<game id="1">
+			<gameWindow id="2" name="grap"></gameWindow>
+			<statsWindow id="3"></statsWindow>
+			<level name="level1" id="6" scale="800,600">
+				<mushroom name="mushroom" id="7" position="100,300" scale="61,32">
+					<imageView name="mushroomView" id="8" imagename="Mushroom" width="122" height="65"></imageView>
+				</mushroom>
+				<mushroom name="mushroom1" id="41" position="220,50" scale="30,8">
+					<imageView name="mushroom1View" id="42" imagename="Mushroom1" width="61" height="16"></imageView>
+				</mushroom>
+				<mushroom name="mushroom2" id="43" position="200,170" scale="60,8">
+					<imageView name="mushroom2View" id="44" imagename="Mushroom2" width="120" height="16"></imageView>
+				</mushroom>
+				<mushroom name="mushroom3" id="45" position="50,120" scale="30,8">
+					<imageView name="mushroom3View" id="46" imagename="Mushroom1" width="61" height="16"></imageView>
+				</mushroom>
+				<mushroom name="mushroom4" id="47" position="50,-20" scale="60,8">
+					<imageView name="mushroom4View" id="48" imagename="Mushroom2" width="120" height="16"></imageView>
+				</mushroom>
+				<wall id="71" position="185,0" scale="10,100"></wall>
+				<wall id="72" position="255,0" scale="10,100"></wall>
+				<wall id="73" position="130,120" scale="10,100"></wall>
+				<wall id="74" position="270,120" scale="10,100"></wall>
+				<wall id="75" position="5,70" scale="10,100"></wall>
+				<wall id="76" position="85,70" scale="10,100"></wall>
+				<wall id="77" position="-10,-70" scale="10,100"></wall>
+				<wall id="78" position="120,-70" scale="10,100"></wall>
+				<player name="Sonic" id="9" scale="38,48">
+					<emitter name="crystalShooter" id="100" emitNumber="1" maxCount="1000" cached="false">
+						<emitterView id="90">
+							<keyDown_1 id="91"></keyDown_1>
+						</emitterView>
+						<bullet name="bullet" id="93" scale="32,45" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="-60,20" delay="2" collisionList="npc">
+							<bulletHideAction id="94">
+								<hide id="95" targetId="93"/>
+							</bulletHideAction>
+							<particleView name="bulletView" id="96" crop="32,45" imagename="Bullet" width="16" height="22" x="[model.screenPosition.x]" y="[model.screenPosition.y]">
+								<particleCollideEvent id="97"/>
+								<animation name="cycle" id="101" fps="15" cycle="continuous" imagewidth="112" imageheight="22" scale="16,22" currentRow="0" rowmap="0">
+									<animationView id="102" imagename="Bullet"></animationView>
+								</animation>
+							</particleView>
+						</bullet>
+						<emitAction id="98">
+							<setFn id="103" targetId="30" targetAttr="currentrow" param1="5"/>
+							<emit delay=".1" id="99"/>
+							<setFn id="104" targetId="30" delay=".3" targetAttr="currentrow" param1="0"/>
+						</emitAction>
+					</emitter>
+					<emitter name="crystalShooter" id="200" emitNumber="1" maxCount="75" cached="false">
+						<emitterView id="190">
+							<keyDown_2 id="191"></keyDown_2>
+						</emitterView>
+						<bullet name="bullet" id="193" scale="32,45" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="60,20" delay="2" collisionList="npc">
+							<bulletHideAction id="194">
+								<hide id="195" targetId="196"/>
+							</bulletHideAction>
+							<particleView name="bulletView" id="196" crop="32,45" imagename="Bullet" width="16" height="22" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="20">
+								<particleCollideEvent id="197"/>
+								<animation name="cycle" id="201" fps="5" cycle="continuous" imagewidth="112" imageheight="22" scale="16,22" currentRow="0" rowmap="0">
+									<animationView id="202" imagename="Bullet"></animationView>
+								</animation>
+							</particleView>
+						</bullet>
+						<emitAction id="198">
+							<setFn id="203" targetId="30" targetAttr="currentrow" param1="4"/>
+							<emit delay=".1" id="199"/>
+							<setFn id="204" targetId="30" delay=".3" targetAttr="currentrow" param1="0"/>
+						</emitAction>
+					</emitter>
+					<moveLeftAction id="10">
+						<addV id="12" targetId="9" targetAttr="velocity" param1="-20,0"/>
+						<setFn id="13" targetId="30" targetAttr="currentrow" param1="3"/>
+					</moveLeftAction>
+					<moveRightAction id="14">
+						<addV id="16" targetId="9" targetAttr="velocity" param1="20,0"/>
+						<setFn id="17" targetId="30" targetAttr="currentrow" param1="1"/>
+					</moveRightAction>
+					<stopAnimationAction id="18">
+						<setFn id="19" targetId="30" delay=".1" targetAttr="currentrow" param1="0"/>
+					</stopAnimationAction>
+					<jumpAction id="20">
+						<addV id="21" targetId="9" targetAttr="velocity" param1="0,-100"/>
+						<setFn id="22" targetId="30" targetAttr="currentrow" param1="2"/>
+						<setFn id="40" targetId="30" delay=".4" targetAttr="currentrow" param1="0"/>
+					</jumpAction>
+					<playerView id="23" width="38" height="48">
+						<tapEvent id="34"></tapEvent>
+						<swipeleftEvent id="35"></swipeleftEvent>
+						<swiperightEvent id="36"></swiperightEvent>
+						<keyUp_a id="80"></keyUp_a>
+						<keyUp_d id="81"></keyUp_d>
+						<keyDown_a id="24"></keyDown_a>
+						<keyDown_d id="25"></keyDown_d>
+						<keyEvent_c id="26"></keyEvent_c>
+					</playerView>
+					<animation name="walk" id="30" fps="10" cycle="continuous" imagewidth="304" imageheight="288" scale="38,48" currentRow="0" rowmap="0" tween="true">
+						<animationView id="31" imagename="Sonic"></animationView>
+					</animation>
+					<camera id="32" name="mainCam" content="rect" position="{[model.parent.position.x]-160},{[model.parent.position.y]-180}" scale="640,760">
+						<cameraView id="33" x="[model.screenPosition.x]" y="[model.screenPosition.y]"></cameraView>
+					</camera>
+				</player>
+				<emitter name="puffyEmitter" id="49" maxCount="1" totalCount="3" cached="true" delay="1">
+					<npc name="npcPuffy" id="51" position="{230},{30}" scale="32,32">
+						<npcExplodeAction id="8110">
+							<emit id="6017" targetId="400"/>
+							<hide id="6016" targetId="53"/>
+							<hide id="6031" targetMetatype="model" targetId="51"/>
+							<destroy id="5632" delay="2" targetId="53"/>
+							<destroy id="5633" delay="2" targetId="51"/>
+						</npcExplodeAction>
+						<puffyView name="puffyView" id="53" width="32" height="32">
+							<npcCollideEvent id="30008"/>
+						</puffyView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="54" currentRow="0" rowmap="0" tween="false">
+							<animationView id="55" imagename="Puffy"></animationView>
+						</animation>
+						<emitter name="explode" id="400" emitNumber="6" totalCount="6">
+							<debris name="star" id="402" scale="24,24">
+								<debrisView name="star" id="403" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="pirateEmitter" id="56" maxCount="1" totalCount="3" cached="true" delay="1">
+					<npc name="npcPirate" id="57" position="{150},{140}" scale="32,32">
+						<npcExplodeAction id="8010">
+							<emit id="7017" targetId="300"/>
+							<hide id="7016" targetId="58"/>
+							<hide id="7031" targetMetatype="model" targetId="57"/>
+							<destroy id="5732" delay="2" targetId="58"/>
+							<destroy id="5733" delay="2" targetId="57"/>
+						</npcExplodeAction>
+						<pirateView name="pirateView" id="58" width="32" height="32">
+							<npcCollideEvent id="20008"/>
+						</pirateView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="59" currentRow="0" rowmap="0" tween="false">
+							<animationView id="60" imagename="Pirate"></animationView>
+						</animation>
+						<emitter name="explode" id="300" emitNumber="6" totalCount="6">
+							<debris name="star" id="302" scale="24,24">
+								<debrisView name="star" id="303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="goopyEmitter" id="61" maxCount="1" totalCount="3" cached="true" delay="1">
+					<npc name="npcGoopy" id="62" position="{40},{90}" scale="32,32">
+						<npcExplodeAction id="8210">
+							<emit id="5017" targetId="1300"/>
+							<hide id="5016" targetId="63"/>
+							<hide id="5031" targetMetatype="model" targetId="62"/>
+							<destroy id="5832" delay="2" targetId="63"/>
+							<destroy id="5833" delay="2" targetId="62"/>
+						</npcExplodeAction>
+						<goopyView name="goopyView" id="63" width="32" height="32">
+							<npcCollideEvent id="30008"/>
+						</goopyView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="64" currentRow="0" rowmap="0" tween="false">
+							<animationView id="65" imagename="Goopy"></animationView>
+						</animation>
+						<emitter name="explode" id="1300" emitNumber="6" totalCount="6">
+							<debris name="star" id="1302" scale="24,24">
+								<debrisView name="star" id="1303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="ghostEmitter" id="66" maxCount="1" totalCount="3" cached="true" delay="1">
+					<npc name="npcGhost" id="67" position="{60},{-40}" scale="32,32">
+						<npcExplodeAction id="8310">
+							<emit id="5517" targetId="2300"/>
+							<hide id="5516" targetId="68"/>
+							<hide id="5531" targetMetatype="model" targetId="67"/>
+							<destroy id="5532" delay="2" targetId="68"/>
+							<destroy id="5533" delay="2" targetId="67"/>
+						</npcExplodeAction>
+						<ghostView name="ghostView" id="68" width="32" height="32">
+							<npcCollideEvent id="40008"/>
+						</ghostView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="69" currentRow="0" rowmap="0" tween="false">
+							<animationView id="70" imagename="Ghost"></animationView>
+						</animation>
+						<emitter name="explode" id="2300" emitNumber="6" totalCount="6">
+							<debris name="star" id="2302" scale="24,24">
+								<debrisView name="star" id="2303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+					</npc>
+				</emitter>
+			</level>
+		</game>
+	</data>
+</root>
+
+

@@ -1,0 +1,1128 @@
+﻿
+<root>
+
+	<settings>
+		<SYSTEM_ATTRIBUTES>(metatype|typename|inheritsFrom|content|tag|tagName|tagName|data|reverse|loop|dirty|_super)</SYSTEM_ATTRIBUTES>
+		<KEYWORDS>this,model,controller,view,parent</KEYWORDS>
+		<COLLISION_CATEGORIES></COLLISION_CATEGORIES>
+		<GAME_REFRESH_FPS>60</GAME_REFRESH_FPS>
+		<GOAL_REFRESH_FPS>1</GOAL_REFRESH_FPS>
+		<RENDER_REFRESH_FPS>0</RENDER_REFRESH_FPS>
+		<PHYSICS_REFRESH_FPS>0</PHYSICS_REFRESH_FPS>
+		<VELOCITY_ITERATIONS>1</VELOCITY_ITERATIONS>
+		<POSITION_ITERATIONS>1</POSITION_ITERATIONS>
+		<KEY_EVENTS>keypress,keydown,keyup</KEY_EVENTS>
+		<MOUSE_EVENTS>mouseover,mouseout,mouseenter,mouseleave,mousemove,mousedown,mouseup,click,dblclick,dragstart,dragend</MOUSE_EVENTS>
+		<COLLIDE_EVENTS>collide,begincontact,endcontact,postsolve</COLLIDE_EVENTS>
+		<MOBILE_EVENTS>tap,taphold,swipe,swipeleft,swiperight,swipeup,swipedown,vmouseover,vmouseout,vmousedown,vmousemove,vclick,vmousecancel,orientationchange,scrollstart,scrollstop,pagebeforeload,pagebeforechange,pagechange,pagebeforeshow,pagebeforehide,pageshow,pagehide,pagecreate,pageinit,pageremove,updatelayout</MOBILE_EVENTS>
+		<ALT_MOBILE_EVENTS> orientationchange,pinch,rotate,swipemove,swipeone,swipetwo,swipethree,swipefour,swipeup,swiperightup,swiperight,swiperightdown,swipedown,swipeleftdown,swipeleft,swipeleftup,tapone,taptwo,tapthree,pinchopen,pinchclose,rotatecw,rotateccw,shake,shakefrontback,shakeleftright,shakeupdown</ALT_MOBILE_EVENTS> 
+	</settings>
+	
+	<resources>
+			<image typename="Sonic" src="Images/Sonic.png" alt="Sonic" width="304" height="336"></image>
+			<image typename="Mushroom" src="Images/Mushroom.png" alt="Mushroom" width="122" height="65"></image>
+			<image typename="Mushroom1" src="Images/Mushroom1.png" alt="Mushroom1" width="122" height="32"></image>
+			<image typename="Mushroom2" src="Images/Mushroom2.png" alt="Mushroom2" width="241" height="32"></image>
+			<image typename="MushroomGreen" src="Images/MushroomGreen.png" alt="MushroomGreen" width="86" height="150"></image>
+			<image typename="MushroomGreen1" src="Images/MushroomGreen1.png" alt="MushroomGreen1" width="86" height="18"></image>
+			<image typename="MushroomGreen2" src="Images/MushroomGreen2.png" alt="MushroomGreen2" width="157" height="18"></image>
+			<image typename="Puffy" src="Images/puffy.png" alt="Puffy" width="96" height="128"></image>
+			<image typename="Pirate" src="Images/pirate.png" alt="Pirate" width="96" height="128"></image>
+			<image typename="Goopy" src="Images/goopy.png" alt="Goopy" width="96" height="128"></image>
+			<image typename="Ghost" src="Images/ghost.png" alt="Ghost" width="96" height="128"></image>
+			<image typename="Bullet" src="Images/Bullet.png" alt="Bullet" width="112" height="23"></image>
+			<image typename="Star" src="Images/Star.png" alt="Star" width="24" height="24"></image>
+			<image typename="Sky" src="Images/SkyStars.jpg" alt="Sky" width="600" height="3199"></image>
+			<image typename="Flowers" src="Images/Flowers.png" alt="Flowers" width="300" height="74"></image>
+			<image typename="Flowers1" src="Images/Flowers1.png" alt="Flowers1" width="300" height="74"></image>
+			<image typename="Cloud1" src="Images/Cloud1.png" alt="Cloud1" width="135" height="105"></image>
+			<image typename="Cloud2" src="Images/Cloud2.png" alt="Cloud2" width="204" height="88"></image>
+			<image typename="Cloud3" src="Images/Cloud3.png" alt="Cloud3" width="107" height="57"></image>
+			<image typename="Balloon" src="Images/ballooning.png" alt="Balloon" width="2000" height="100"></image>
+			<image typename="BalloonMed" src="Images/ballooningMed.png" alt="BalloonMed" width="1700" height="85"></image>
+			<image typename="BalloonSmall" src="Images/ballooningSmall.png" alt="BalloonSmall" width="1500" height="75"></image>
+			<image typename="Lily" src="Images/Lily.png" alt="Lily" width="846" height="120"></image>
+			<image typename="Buzzard" src="Images/Buzzard.png" alt="Buzzard" width="462" height="192"></image>
+			<image typename="WeirdPlant" src="Images/WeirdPlant.png" alt="WeirdPlant" width="320" height="32"></image>
+			<image typename="SpinningRing" src="Images/Ring.png" alt="WeirdPlant" width="320" height="32"></image>
+			<image typename="MasterRing" src="Images/MasterRing.png" alt="MasterRing" width="256" height="32"></image>
+			<image typename="MoneyBag" src="Images/MoneyBag.png" alt="MoneyBag" width="245" height="70"></image>
+			<image typename="Tree" src="Images/CartoonTree.png" alt="CartoonTree" width="300" height="236"></image>
+			<image typename="Particle1" src="Images/particles2_1.png" alt="Particle1" width="512" height="1024"></image>
+			<image typename="Particle2" src="Images/particles2_2.png" alt="Particle2" width="256" height="512"></image>
+			<image typename="Fountain" src="Images/Fountain.png" alt="Fountain" width="816" height="57"></image>
+			<image typename="Fireworks" src="Images/Fireworks.png" alt="Fireworks" width="490" height="70"></image>
+			<image typename="Sun" src="Images/Sun.png" alt="Sun" width="75" height="75"></image>
+			<image typename="Moon" src="Images/Moon.png" alt="Moon" width="80" height="75"></image>
+			<image typename="1500Points" src="Images/1500Points.png" alt="1500Points" width="59" height="24"></image>
+			<image typename="500Points" src="Images/500Points.png" alt="500Points" width="45" height="24"></image>
+			<image typename="250Points" src="Images/250Points.png" alt="250Points" width="43" height="24"></image>
+			<image typename="50Points" src="Images/50Points.png" alt="50Points" width="31" height="24"></image>
+	</resources>
+	
+	<meta>
+		<models>
+			<model typename="score">
+				<attribute typename="points" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="model">
+				<attribute typename="delay" dt="float" defaultValue="0"/>
+				<attribute typename="fps" dt="float" defaultValue="60"/>
+				<attribute typename="content" dt="string" defaultValue="circle"/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="inheritsFrom" dt="string" defaultValue="model"/>
+				<!--<attribute typename="typename" dt="string" defaultValue="model"/>-->
+			</model>
+			<model typename="event" inheritsFrom="model">
+				<attribute typename="eventname" dt="string" defaultValue=""/>
+				<attribute typename="action" dt="string" defaultValue=""/>
+				<attribute typename="raiseOnce" dt="boolean" defaultValue="true"/>
+				<attribute typename="listen" dt="int" defaultValue="1"/>
+			</model>
+			<model typename="keyEvent" inheritsFrom="event">
+				<attribute typename="keyname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="keyEvent_w" inheritsFrom="keyEvent" eventname="keypress" keyname="w" action="moveForward"></model>
+			<model typename="keyEvent_s" inheritsFrom="keyEvent" eventname="keypress" keyname="s" action="moveBack"></model>
+			<model typename="keyEvent_a" inheritsFrom="keyEvent" eventname="keypress" keyname="a" action="moveLeft"></model>
+			<model typename="keyEvent_d" inheritsFrom="keyEvent" eventname="keypress" keyname="d" action="moveRight"></model>
+			<model typename="keyEvent_c" inheritsFrom="keyEvent" eventname="keypress" keyname="c" action="jump"></model>
+			<model typename="keyDown_a" inheritsFrom="keyEvent" eventname="keydown" keyname="a" action="moveLeft"></model>
+			<model typename="keyDown_d" inheritsFrom="keyEvent" eventname="keydown" keyname="d" action="moveRight"></model>
+			<model typename="keyDown_c" inheritsFrom="keyEvent" eventname="keydown" keyname="c" action="jump"></model>
+			<model typename="keyDown_1" inheritsFrom="keyEvent" eventname="keydown" keyname="1" action="emit"></model>
+			<model typename="keyDown_2" inheritsFrom="keyEvent" eventname="keydown" keyname="2" action="emit"></model>
+			<model typename="keyUp_a" inheritsFrom="keyEvent" eventname="keyup" keyname="a" action="stopAnimation"></model>
+			<model typename="keyUp_d" inheritsFrom="keyEvent" eventname="keyup" keyname="d" action="stopAnimation"></model>
+			<model typename="swipeupEvent" inheritsFrom="event" eventname="swipeup" action="moveForward"></model>
+			<model typename="swipedownEvent" inheritsFrom="event" eventname="swipedown" action="moveBack"></model>
+			<model typename="swipeleftEvent" inheritsFrom="event" eventname="swipeleft" action="moveLeft"></model>
+			<model typename="swiperightEvent" inheritsFrom="event" eventname="swiperight" action="moveRight"></model>
+			<model typename="tapEvent" inheritsFrom="event" eventname="tap" action="jump"></model>
+			<model typename="mouseupEvent" inheritsFrom="event" eventname="mouseup" action="stopAnimation"></model>
+			<model typename="collideEvent" inheritsFrom="event">
+				<attribute typename="targettypes" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="npcCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="npcExplode" targettypes="bullet,player"></model>
+			<model typename="particleCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="bulletHide" targettypes="npc,balloon,balloonMed,balloonSmall"></model>
+			<model typename="cloudWallCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="reverseDirection" targettypes="barrierwall"></model>
+			<model typename="balloonCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="balloonExplode" targettypes="bullet"></model>
+			<model typename="lilyCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="roll" targettypes="bullet"></model>
+			<model typename="spinningRingCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="player"></model>
+			<model typename="playerRingCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="spinningring"></model>
+			<model typename="playerRing1CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="spinningring1"></model>
+			<model typename="playerRing2CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="spinningring2"></model>
+			<model typename="playerRing3CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="spinningring3"></model>
+			<model typename="playerRing4CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="spinningring4"></model>
+			<model typename="moneybagPlayerCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="player"></model>
+			<model typename="playerMoneybagCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="moneybag"></model>
+			<model typename="playerMoneybag1CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="moneybag1"></model>
+			<model typename="playerMoneybag2CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="moneybag2"></model>
+			<model typename="playerMoneybag3CollideEvent" inheritsFrom="collideEvent" eventname="collide" action="showscore" targettypes="moneybag3"></model>
+			<model typename="buzzarddroppingPlayerCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="droppingHide" targettypes="player"></model>
+			<model typename="playerNpcCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="die" targettypes="npc,buzzarddropping,lily"></model>
+			
+			<model typename="action" inheritsFrom="model">
+				<attribute typename="actionname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="nothingAction" actionname="null" inheritsFrom="action"></model>
+			<model typename="moveLeftAction" actionname="moveLeft" inheritsFrom="action"></model>
+			<model typename="moveRightAction" actionname="moveRight" inheritsFrom="action"></model>
+			<model typename="rotateLeftAction" actionname="rotateLeft" inheritsFrom="action"></model>
+			<model typename="rotateRightAction" actionname="rotateRight" inheritsFrom="action"></model>
+			<model typename="stopAnimationAction" actionname="stopAnimation" inheritsFrom="action"></model>
+			<model typename="jumpAction" actionname="jump" inheritsFrom="action"></model>
+			<model typename="emitAction" actionname="emit" inheritsFrom="action"></model>
+			<model typename="bulletHideAction" actionname="bulletHide" inheritsFrom="action"></model>
+			<model typename="droppingHideAction" actionname="droppingHide" inheritsFrom="action"></model>
+			<model typename="npcExplodeAction" actionname="npcExplode" inheritsFrom="action"></model>
+			<model typename="balloonExplodeAction" actionname="balloonExplode" inheritsFrom="action"></model>
+			<model typename="reverseDirectionAction" actionname="reverseDirection" inheritsFrom="action"></model>
+			<model typename="rollAction" actionname="roll" inheritsFrom="action"></model>
+			<model typename="scoreAction" actionname="showscore" inheritsFrom="action"></model>
+			<model typename="dieAction" actionname="die" inheritsFrom="action"></model>
+			
+			<model typename="fn" inheritsFrom="model">
+				<attribute typename="targetId" dt="int" defaultValue=""/>
+				<attribute typename="targetName" dt="string" defaultValue=""/>
+				<attribute typename="targetTypename" dt="string" defaultValue=""/>
+				<attribute typename="targetMetatype" dt="string" defaultValue=""/>
+				<attribute typename="targetAttr" dt="string" defaultValue=""/>
+				<attribute typename="mapFn" dt="string" defaultValue=""/>
+				<attribute typename="param1" dt="string" defaultValue=""/>
+				<attribute typename="datatype" dt="string" defaultValue="int"/>
+				<attribute typename="arrayLength" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="setFn" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="add" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="subtract" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="multiply" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="divide" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="addV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="subtractV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="multiplyV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="dotV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="crossV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="emit" targetMetatype="controller" inheritsFrom="fn" targetTypename="emitter"></model>
+			<model typename="destroy" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="show" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="hide" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="applyForce" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyImpulse" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyTorque" targetMetatype="model" inheritsFrom="fn" mapFn="ApplyTorque"></model>
+			
+			<model typename="game" inheritsFrom="model" content="world" framework="box2d">
+				<attribute typename="scale" dt="b2vec2" defaultValue="800,3200" scaleFactor="30"/>
+				<attribute typename="goalResolution" dt="b2vec2" defaultValue="60,60"/>
+				<attribute typename="gravity" dt="b2vec2" defaultValue="0,.98" scaleFactor="30"/>
+				<attribute typename="listen" dt="int" defaultValue="1"/>
+			</model>
+			<model typename="object" inheritsFrom="model" position="0,0" scale="0,0" restitution=".3" framework="box2d">
+				<attribute typename="position" dt="b2vec2" getmap="GetPosition" setmap="SetPosition" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="screenPosition" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="orientation" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="maxVelocity" dt="b2vec2" defaultValue="3000,3000" scaleFactor="30"/>
+				<attribute typename="minVelocity" dt="b2vec2" defaultValue="-3000,-3000" scaleFactor="30"/>
+				<attribute typename="acceleration" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="rotation" getmap="GetAngle" setmap="SetAngle" dt="float" defaultValue="0"/>
+				<attribute typename="friction" dt="float" defaultValue="0"/>
+				<attribute typename="density" dt="float" defaultValue="0.3"/>
+				<attribute typename="restitution" dt="float" defaultValue=".5"/>
+				<attribute typename="linearVelocity" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="velocityNormal" dt="b2vec2" defaultValue="0"/>
+				<attribute typename="velocity" dt="b2vec2" getmap="GetLinearVelocity" setmap="SetLinearVelocity" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="linearDamping" dt="float" getmap="GetLinearDamping" setmap="SetLinearDamping" defaultValue="0"/>
+				<attribute typename="angularVelocity" dt="float" getmap="GetAngularVelocity" setmap="SetAngularVelocity" defaultValue="0"/>
+				<attribute typename="angularImpulse" dt="float" defaultValue="0"/>
+				<attribute typename="angularDamping" dt="float" defaultValue="0"/>
+				<attribute typename="bodyType" dt="int" getmap="GetType" setmap="SetType" defaultValue="0"/>
+				<attribute typename="fixedRotation" dt="bool" defaultValue="true"/>
+				<attribute typename="collidable" dt="bool" defaultValue="false"/>
+				<attribute typename="collisionlist" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="actor" inheritsFrom="object" bodyType="2">
+				<attribute typename="goal" dt="string" defaultValue=""/>
+				<attribute typename="goalradius" dt="int" defaultValue="3000"/>
+				<attribute typename="goalAvoid" dt="bool" defaultValue="false"/>
+				<attribute typename="goalmethod" dt="string" defaultValue="astar"/>
+				<attribute typename="goalstrength" dt="float" defaultValue="1"/>
+			</model>
+			<model typename="player" inheritsFrom="actor" content="circle" position="0,1200" velocity="0,0" scale="55,50" linearDamping=".5" density="1" friction=".5" restitution=".5" collidable="true" collisionlist="npc,mushroom,barrierwall,balloon,balloonMed,balloonSmall,moneybag,moneybag1,spinningring,spinningring1,spinningring2,spinningring3,spinningring4,tree,buzzarddropping,lily"></model>
+			
+			<model typename="image" inheritsFrom="object" content="rect" bodyType="1" position="0,0" scale="0,0"></model>
+			<model typename="wall" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="true" collisionlist="npc" restitution=".3" density=".3"></model>
+			<model typename="coveringwall" inheritsFrom="object" content="rect" position="0,0" scale="0,0"></model>
+		
+			<model typename="tween" inheritsFrom="model" fps=".1" cycle="none"></model>
+			<model typename="emitter" inheritsFrom="model" emitNumber="1">
+				<attribute typename="emitNumber" dt="int" defaultValue="1"/>
+				<attribute typename="maxCount" dt="int" defaultValue="0"/>
+				<attribute typename="totalCount" dt="int" defaultValue="0"/>
+				<attribute typename="cached" dt="bool" defaultValue="false"/>
+			</model>
+			
+			<model typename="barrierwall" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="true" collisionlist="player,cloud,lily,spinningring,spinningring1,spinningring2,spinningring3,spinningring4,weirdplant,buzzarddropping" restitution=".3" density=".3"></model>
+			<model typename="particle" inheritsFrom="actor" content="circle" position="0,0" scale="0,0" velocity="0,0" collidable="true" friction="0" restitution=".8"></model>
+			<model typename="bullet" inheritsFrom="particle" collisionlist="npc,mushroom,balloon,balloonMed,balloonSmall"></model>
+			<model typename="npc" inheritsFrom="particle" content="circle" position="80,210" velocity="3,3" scale="30,30" density=".3" restitution=".3" goal="player" goalmethod="astar" goalstrength="5" goalradius="200" collidable="true" collisionlist="player,mushroom,wall,bullet"></model>
+			<model typename="cloud" inheritsFrom="particle" content="circle" bodyType="1" density="0" restitution=".3" collisionList=""></model>
+			<model typename="balloon" inheritsFrom="particle" content="circle" bodyType="1" friction=".5" density="0" restitution=".3" collisionList="bullet,player"></model>
+			<model typename="balloonMed" inheritsFrom="particle" content="circle" bodyType="1" friction=".5" density="0" restitution=".3" collisionList="bullet,player"></model>
+			<model typename="balloonSmall" inheritsFrom="particle" content="circle" bodyType="1" friction=".5" density="0" restitution=".3" collisionList="bullet,player"></model>
+			<model typename="lily" inheritsFrom="particle" collisionlist="barrierwall,player"></model>
+			<model typename="buzzard" inheritsFrom="particle" bodyType="1" collisionlist=""></model>
+			<model typename="weirdplant" inheritsFrom="particle" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="spinningring" inheritsFrom="object" collidable="true" bodyType="1" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="spinningring1" inheritsFrom="object" collidable="true" bodyType="1" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="spinningring2" inheritsFrom="object" collidable="true" bodyType="1" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="spinningring3" inheritsFrom="object" collidable="true" bodyType="1" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="spinningring4" inheritsFrom="object" collidable="true" bodyType="1" collisionlist="mushroom,barrierwall,player"></model>
+			<model typename="moneybag" inheritsFrom="particle" collisionlist="mushroom,player"></model>
+			<model typename="moneybag1" inheritsFrom="particle" collisionlist="mushroom,player"></model>
+			<model typename="moneybag2" inheritsFrom="particle" collisionlist="mushroom,player"></model>
+			<model typename="moneybag3" inheritsFrom="particle" collisionlist="mushroom,player"></model>
+			<model typename="buzzarddropping" inheritsFrom="particle" bodyType="2" maxVelocity="80,80" goal="player" goalMethod="astar" collisionlist="player,barrierwall,mushroom"></model>
+			<model typename="mushroom" inheritsFrom="object" collidable="true" collisionlist="player,npc,bullet,buzzarddropping,weirdplant,spinningring,spinningring1,spinningring2,spinningring3,spinningring4,moneybag,moneybag1" content="rect"></model>
+			<model typename="tree" inheritsFrom="object" collidable="true" collisionlist="player" content="rect"></model>
+			<model typename="scoreicon" inheritsFrom="particle" collidable="false" bodyType="1" collisionlist=""></model>
+			<model typename="fountain" inheritsFrom="particle" collidable="true" bodyType="1" collisionlist=""></model>
+			<model typename="fireworks" inheritsFrom="particle" collidable="false" bodyType="2" collisionlist=""></model>
+			
+			<model typename="level" inheritsFrom="model"></model>
+			<model typename="animation" inheritsFrom="model" framework="">
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="imagewidth" dt="int" defaultValue="0"/>
+				<attribute typename="imageheight" dt="int" defaultValue="0"/>
+				<attribute typename="cycle" dt="string" defaultValue="continuous"/>
+				<attribute typename="rowmap" dt="int" arrayLength="0" defaultValue=""/>
+				<attribute typename="animstep" dt="int" defaultValue="0"/>
+				<attribute typename="tween" dt="bool" defaultValue="false"/>
+				<attribute typename="direction" dt="int" defaultValue="1"/>
+				<attribute typename="currentrow" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="camera" inheritsFrom="actor" content="rect" position="0,0" scale="10,10" collidable="false" collisionlist="" rotation="0" bodyType="0"></model>
+			<model typename="debris" inheritsFrom="particle" scale="10,10" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{(Math.random()*60)-30}, {-(Math.random()*100)}" fixedRotation="false" density=".3" collidable="false" collisionlist="mushroom,player" delay="2"></model>
+		</models>
+	
+		<views>
+			<view typename="view">
+				<attribute typename="tag" dt="string" defaultValue="div"/>
+				<attribute typename="content" dt="string" defaultValue="rect"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+			</view>
+			<view typename="window" inheritsFrom="view" content="html">
+				<attribute typename="tagname" dt="string" defaultValue=""/>
+				<attribute typename="class" dt="string" defaultValue=""/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="0"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="0"/>
+				<attribute typename="zIndex" dt="int" defaultValue=""/>
+			</view>
+			<view typename="gameWindow" inheritsFrom="window" content="stage" tag="canvas" container="container" width="320" height="380" framework="kineticjs">
+				<attribute typename="container" dt="string" getmap="getContainer" setmap="setContainer" defaultValue="container"/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+			</view>
+			<view typename="statsWindow" inheritsFrom="window" content="html" tag="div" tagname="statsWindow" class=""></view>
+			<view typename="canvasElement" inheritsFrom="view" framework="kineticjs">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+				<attribute typename="offsetX" dt="float" getmap="getOffsetX" setmap="setOffsetX" defaultValue="{[view.width]/2}"/>
+				<attribute typename="offsetY" dt="float" getmap="getOffsetY" setmap="setOffsetY" defaultValue="{[view.height]/2}"/>
+				<attribute typename="crop" dt="int" arrayLength="2" defaultValue="0,0"/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="10"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="10"/>
+				<attribute typename="rotation" dt="float" getmap="getRotation" setmap="setRotation" defaultValue="0"/>
+				<attribute typename="opacity" dt="int" getmap="getOpacity" setmap="setOpacity" defaultValue="100"/>
+				<attribute typename="strokeWidth" dt="int" getmap="getStrokeWidth" setmap="setStrokeWidth" defaultValue=""/>
+				<attribute typename="fill" dt="string" getmap="getFill" setmap="setFill" defaultValue=""/>
+				<attribute typename="zIndex" dt="int" getmap="getZIndex" setmap="setZIndex" defaultValue="-1"/>
+			</view>
+			<view typename="playerView" inheritsFrom="canvasElement" content="image" imagename="Sonic" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="38" height="48" strokeWidth="0" rotation="0"></view>
+			<view typename="puffyView" inheritsFrom="canvasElement" content="image" imagename="Puffy" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="pirateView" inheritsFrom="canvasElement" content="image" imagename="Pirate" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="goopyView" inheritsFrom="canvasElement" content="image" imagename="Goopy" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="ghostView" inheritsFrom="canvasElement" content="image" imagename="Ghost" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="32" height="32" strokeWidth="0" crop="32,32"></view>
+			<view typename="mushroomView" inheritsFrom="imageView"  x="[model.screenPosition.x]" y="[model.screenPosition.y]"></view>
+			<view typename="cameraView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="0" height="0" opacity="5" visible="false"></view>
+			<view typename="layerView" inheritsFrom="canvasElement" content="rect" x="0" y="0"></view>
+			<view typename="itemView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" rotation="[model.rotation]" opacity="75"></view>
+			<view typename="imageView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" rotation="[model.rotation]" opacity="100"></view>
+			<view typename="tweenView" inheritsFrom="view"></view>
+			<view typename="wallView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" fill="#FF4719"></view>
+		
+			<view typename="animationView" inheritsFrom="view" visible="false">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+			</view>
+			<view typename="emitterView" inheritsFrom="view"></view>
+			<view typename="explosionEmitterView" inheritsFrom="emitterView"></view>
+			<view typename="particleView" inheritsFrom="canvasElement" content="image"></view>
+			<view typename="debrisView" inheritsFrom="particleView" width="24" height="24" x="[model.screenPosition.x]" y="[model.screenPosition.y]" opacity="100"></view>
+		</views>
+	</meta>
+	<data>
+		<game id="1">
+			<gameWindow id="2" name="grap"></gameWindow>
+			<statsWindow id="3"></statsWindow>
+			<level name="level1" id="6" scale="800,1600">
+				<!--Background image-->
+				<image name="bgImage" id="111177" position="0,-170" scale="600,3199">
+					<imageView id="11188" name="bgImageView" imagename="Sky" width="600" height="3199" zIndex="1"></imageView>
+				</image>
+				
+				<!--<image name="sun" id="3344111177" position="-200,725" velocity=".3,-.1" scale="75,75">
+					<imageView id="334411188" name="sunView" imagename="Sun" width="75" height="75" zIndex="5"></imageView>
+				</image>-->
+				<image name="moon" id="4444111177" position="200,-650" velocity="-.3,-.1" scale="80,75">
+					<imageView id="444411188" name="moonView" imagename="Moon" width="80" height="75" zIndex="2"></imageView>
+				</image>
+				
+				<!--Bottom Tree-->
+				<image name="treeLeft" id="4444778" position="-150,1225" scale="300,236">
+					<imageView id="4444779" name="treeViewLeft" imagename="Tree" width="300" height="236" zIndex="10"></imageView>
+				</image>
+				<!--Tree-->
+				<tree id="3335555590" position="-130,1135" scale="65,10"></tree>
+				
+				<!--Bottom Flowers-->
+				<image name="flowersLeft" id="111778" position="-150,1292" scale="300,74">
+					<imageView id="11889" name="flowerLeftView" imagename="Flowers" width="300" height="74" zIndex="3"></imageView>
+				</image>
+				<image name="flowersRight" id="111779" position="150,1292" scale="300,74">
+					<imageView id="11890" name="flowerRightView" imagename="Flowers1" width="300" height="74" zIndex="4"></imageView>
+				</image>
+				
+				<!--Orange Mushrooms-->
+				<mushroom name="mushroom" id="7" position="0,1296" scale="61,32">
+					<mushroomView name="mushroomView" id="8" imagename="Mushroom" width="122" height="65" zIndex="5"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom1" id="41" position="-100,-940" scale="30,8">
+					<mushroomView name="mushroom1View" id="42" imagename="Mushroom1" width="61" height="16" zIndex="6"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom2" id="43" position="200,-810" scale="60,8">
+					<mushroomView name="mushroom2View" id="44" imagename="Mushroom2" width="120" height="16" zIndex="7"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom3" id="45" position="50,-680" scale="30,8">
+					<mushroomView name="mushroom3View" id="46" imagename="Mushroom1" width="61" height="16" zIndex="8"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom4" id="47" position="-150,-300" scale="60,8">
+					<mushroomView name="mushroom4View" id="48" imagename="Mushroom2" width="120" height="16" zIndex="9"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom5" id="777747" position="0,0" scale="60,8">
+					<mushroomView name="mushroom5View" id="777749" imagename="Mushroom2" width="120" height="16" zIndex="10"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom6" id="777748" position="150,120" scale="30,8">
+					<mushroomView name="mushroom6View" id="777750" imagename="Mushroom1" width="61" height="16" zIndex="11"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom7" id="777748" position="100,250" scale="60,8">
+					<mushroomView name="mushroom7View" id="777751" imagename="Mushroom2" width="120" height="16" zIndex="12"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom8" id="777752" position="-20,475" scale="60,8">
+					<mushroomView name="mushroom8View" id="777753" imagename="Mushroom2" width="120" height="16" zIndex="13"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom9" id="777754" position="100,1025" scale="30,8">
+					<mushroomView name="mushroom9View" id="777755" imagename="Mushroom1" width="61" height="16" zIndex="14"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroom10" id="777756" position="-170,950" scale="60,8">
+					<mushroomView name="mushroom10View" id="777757" imagename="Mushroom2" width="120" height="16" zIndex="15"></mushroomView>
+				</mushroom>
+				
+				<!--Monster blocking walls for Orange Mushrooms-->
+				<wall id="5555571" position="-160,-940" scale="10,400"></wall>
+				<wall id="5555572" position="-35,-940" scale="10,400"></wall>
+				<wall id="5555573" position="135,-810" scale="10,400"></wall>
+				<wall id="5555574" position="265,-810" scale="10,400"></wall>
+				<wall id="5555575" position="-15,-680" scale="10,400"></wall>
+				<wall id="5555576" position="115,-680" scale="10,400"></wall>
+				<wall id="5555997" position="-215,-300" scale="10,400"></wall>
+				<wall id="5555998" position="-85,-300" scale="10,400"></wall>
+				<wall id="5555577" position="-65,0" scale="10,400"></wall>
+				<wall id="5555578" position="65,0" scale="10,400"></wall>
+				<wall id="5555581" position="35,250" scale="10,400"></wall>
+				<wall id="5555582" position="165,250" scale="10,400"></wall>
+				<wall id="5555585" position="-85,450" scale="10,400"></wall>
+				<wall id="5555586" position="45,450" scale="10,400"></wall>
+				<wall id="5555587" position="85,1075" scale="10,400"></wall>
+				<wall id="5555588" position="215,1075" scale="10,400"></wall>
+				<wall id="5555589" position="-235,950" scale="10,400"></wall>
+				<wall id="5555590" position="-105,950" scale="10,400"></wall>
+				
+				<!--Green Mushrooms-->
+				<mushroom name="mushroomGreen" id="66666664" position="200,1255" scale="43,75">
+					<mushroomView name="mushroomGreenView" id="66666665" imagename="MushroomGreen" width="86" height="150" zIndex="16"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroomGreen1" id="44444664" position="-100,775" scale="43,9">
+					<mushroomView name="mushroomGreenView1" id="44444665" imagename="MushroomGreen1" width="86" height="18" zIndex="17"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroomGreen2" id="44444666" position="120,655" scale="78,9">
+					<mushroomView name="mushroomGreenView2" id="44444667" imagename="MushroomGreen2" width="157" height="18" zIndex="18"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroomGreen3" id="44444668" position="-200,120" scale="43,9">
+					<mushroomView name="mushroomGreenView3" id="44444669" imagename="MushroomGreen1" width="86" height="18" zIndex="19"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroomGreen5" id="44444670" position="150,-100" scale="43,9">
+					<mushroomView name="mushroomGreenView5" id="44444671" imagename="MushroomGreen1" width="86" height="18" zIndex="20"></mushroomView>
+				</mushroom>
+				<mushroom name="mushroomGreen5" id="44444672" position="-150,-490" scale="43,9">
+					<mushroomView name="mushroomGreenView5" id="44444673" imagename="MushroomGreen1" width="86" height="18" zIndex="21"></mushroomView>
+				</mushroom>
+				
+				<!--Monster blocking walls for Green Mushrooms-->
+				<wall id="7777790" position="145,1255" scale="10,400"></wall>
+				<wall id="7777791" position="255,1255" scale="10,400"></wall>
+				<wall id="7777792" position="-165,775" scale="10,400"></wall>
+				<wall id="7777793" position="-35,775" scale="10,400"></wall>
+				<wall id="7777794" position="25,655" scale="10,400"></wall>
+				<wall id="7777795" position="155,655" scale="10,400"></wall>
+				<wall id="7777798" position="-265,120" scale="10,400"></wall>
+				<wall id="7777799" position="-135,120" scale="10,400"></wall>
+				<wall id="7777100" position="85,-100" scale="10,400"></wall>
+				<wall id="7777101" position="215,-100" scale="10,400"></wall>
+				<wall id="7777102" position="-215,-490" scale="10,400"></wall>
+				<wall id="7777103" position="-85,-490" scale="10,400"></wall>
+				
+				<!--Spinning Rings-->
+				<spinningring id="333339990" position="-170,924" scale="32,32">
+					<scoreAction id="3333333331">
+						<emit id="3333343244" targetId="10000000001"/>
+						<hide id="3333399555" targetId="333339991"/>	
+						<destroy id="3332322225533" delay="1" targetId="333339991"/>
+						<destroy id="333422299583" targetMetatype="model" delay="1" targetId="333339990"/>
+					</scoreAction>
+					<imageView name="spinningRingView" id="333339991" imagename="SpinningRing" width="32" height="32" zIndex="22">
+						<animation name="cycle" id="333339992" fps="10" cycle="continuous" imagewidth="320" imageheight="32" scale="32,32"  currentrow="0">
+							<animationView id="333339993" imagename="SpinningRing"></animationView>
+						</animation>
+						<spinningRingCollideEvent id="3333399444"></spinningRingCollideEvent>
+					</imageView>
+					<emitter name="scoreEmitter" id="10000000001" emitNumber="1" maxCount="1">
+						<scoreicon name="scoreicon" id="10000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="45,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+							<imageView id="10000000003" name="scoreView1" imagename="500Points" width="45" height="24"></imageView>
+						</scoreicon>
+					</emitter>
+				</spinningring>
+				<spinningring1 id="2222229990" position="0,-32" scale="32,32">
+					<scoreAction id="33337234331">
+						<emit id="333422299444" targetId="20000000001"/>
+						<hide id="333422299555" targetId="2222229991"/>
+						<destroy id="3332322225532" delay="1" targetId="2222229991"/>
+						<destroy id="333422299533" targetMetatype="model" delay="1" targetId="2222229990"/>
+					</scoreAction>
+					<imageView name="spinningRingView1" id="2222229991" imagename="SpinningRing" width="32" height="32" zIndex="24">
+						<animation name="cycle" id="2222229992" fps="10" cycle="continuous" imagewidth="320" imageheight="32" scale="32,32"  currentrow="0">
+							<animationView id="2222229993" imagename="SpinningRing"></animationView>
+						</animation>
+						<spinningRingCollideEvent id="33333993333"></spinningRingCollideEvent>
+					</imageView>
+					<emitter name="scoreEmitter1" id="20000000001" emitNumber="1" maxCount="1">
+						<scoreicon name="scoreicon1" id="20000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="45,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+							<imageView id="20000000003" name="scoreView1" imagename="500Points" width="45" height="24"></imageView>
+						</scoreicon>
+					</emitter>
+				</spinningring1>
+				<spinningring2 id="111322220" position="120,623" scale="32,32">
+					<scoreAction id="1111134331">
+						<emit id="1122199444" targetId="300000001"/>
+						<hide id="1111199555" targetId="114444419991"/>
+						<destroy id="3332322225531" delay="1" targetId="114444419991"/>
+						<destroy id="333422299553" targetMetatype="model" delay="1" targetId="111322220"/>
+					</scoreAction>
+					<imageView name="spinningRingView2" id="114444419991" imagename="SpinningRing" width="32" height="32" zIndex="26">
+						<animation name="cycle" id="1114444992" fps="10" cycle="continuous" imagewidth="320" imageheight="32" scale="32,32"  currentrow="0">
+							<animationView id="144444419993" imagename="SpinningRing"></animationView>
+						</animation>
+						<spinningRingCollideEvent id="11222993333"></spinningRingCollideEvent>
+					</imageView>
+					<emitter name="scoreEmitter2" id="300000001" emitNumber="1" maxCount="1">
+						<scoreicon name="scoreicon2" id="30000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="45,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+							<imageView id="30000000003" name="scoreView1" imagename="500Points" width="45" height="24"></imageView>
+						</scoreicon>
+					</emitter>
+				</spinningring2>
+				<spinningring3 id="8822822220" position="-150,-532" scale="32,32">
+					<scoreAction id="8228834331">
+						<emit id="8882832444" targetId="40000000001"/>
+						<hide id="8888832555" targetId="84444489991"/>
+						<destroy id="3332322222731" delay="1" targetId="84444489991"/>
+						<destroy id="333422299563" targetMetatype="model" delay="1" targetId="8822822220"/>
+					</scoreAction>
+					<imageView name="spinningRingView3" id="84444489991" imagename="SpinningRing" width="32" height="32" zIndex="27">
+						<animation name="cycle" id="8882229992" fps="10" cycle="continuous" imagewidth="320" imageheight="32" scale="32,32"  currentrow="0">
+							<animationView id="888229222993" imagename="SpinningRing"></animationView>
+						</animation>
+						<spinningRingCollideEvent id="8888822993333"></spinningRingCollideEvent>
+					</imageView>
+					<emitter name="scoreEmitter3" id="40000000001" emitNumber="1" maxCount="1">
+						<scoreicon name="scoreicon3" id="40000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="45,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+							<imageView id="40000000003" name="scoreView1" imagename="500Points" width="45" height="24"></imageView>
+						</scoreicon>
+					</emitter>
+				</spinningring3>
+				<spinningring4 id="9922822220" position="-100,-972" scale="32,32">
+					<scoreAction id="9928834331">
+						<emit id="9982832444" targetId="99777770001"/>
+						<emit id="9982832999" targetId="44443317770001"/>
+						<emit id="99828329991" targetId="88883317772201"/>
+						<hide id="9988832555" targetId="99444489991"/>
+						<destroy id="993422299563" delay="6" targetId="99444489991"/>
+						<destroy id="9932322222731" targetMetatype="model" delay="6" targetId="9922822220"/>
+					</scoreAction>
+					<imageView name="spinningRingView4" id="99444489991" imagename="MasterRing" width="32" height="32" zIndex="28">
+						<animation name="cycle" id="997777992" fps="10" cycle="continuous" imagewidth="256" imageheight="32" scale="32,32"  currentrow="0">
+							<animationView id="99877772993" imagename="MasterRing"></animationView>
+						</animation>
+						<spinningRingCollideEvent id="998771123333"></spinningRingCollideEvent>
+					</imageView>
+					<emitter name="scoreEmitter4" id="99777770001" emitNumber="1" maxCount="1">
+						<scoreicon name="scoreicon4" id="99435420002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="45,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+							<imageView id="9945354003" name="scoreView4" imagename="1500Points" width="59" height="24"></imageView>
+						</scoreicon>
+					</emitter>
+					<emitter name="fireworksEmitter" id="44443317770001" emitNumber="5" totalCount="5" cached="true">
+						<fireworks name="fireworks" id="4444331420002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="70,70" velocity="{(Math.random()*60)-20},{(Math.random()*-60)-20}" delay=".8">
+							<imageView id="44443314003" name="fireworksView" imagename="Fireworks" width="70" height="70">
+								<animation name="cycle" id="44443317992" fps="16" cycle="continuous" imagewidth="980" imageheight="70" scale="70,70"  currentrow="0">
+									<animationView id="4444331772993" imagename="Fireworks"></animationView>
+								</animation>
+							</imageView>
+						</fireworks>
+					</emitter>
+					<emitter name="fireworks2Emitter" id="88883317772201" emitNumber="5" totalCount="5" cached="true">
+						<fireworks name="fireworks1" id="8888331420002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="32,32" velocity="{(Math.random()*100)-50},{(Math.random()*-680)-20}" delay="2">
+							<imageView id="88883314003" name="fireworks1View" imagename="Particle2" width="32" height="32">
+								<animation name="cycle" id="88883317992" fps="16" cycle="continuous" imagewidth="256" imageheight="512" scale="32,32"  currentrow="0">
+									<animationView id="8888331772993" imagename="Particle2"></animationView>
+								</animation>
+							</imageView>
+						</fireworks>
+						<fireworks name="fireworks2" id="9999991420002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="32,32" velocity="{(Math.random()*100)-50},{(Math.random()*-80)-20}" delay="2">
+							<imageView id="9999914003" name="fireworks2View" imagename="Particle2" width="32" height="32">
+								<animation name="cycle" id="999917992" fps="16" cycle="continuous" imagewidth="256" imageheight="512" scale="32,32"  currentrow="5">
+									<animationView id="99999331772993" imagename="Particle2"></animationView>
+								</animation>
+							</imageView>
+						</fireworks>
+						<fireworks name="fireworks3" id="444756291420002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="32,32" velocity="{(Math.random()*100)-50},{(Math.random()*-80)-20}" delay="2">
+							<imageView id="444756214003" name="fireworks2View" imagename="Particle2" width="32" height="32">
+								<animation name="cycle" id="44475627992" fps="16" cycle="continuous" imagewidth="256" imageheight="512" scale="32,32"  currentrow="13">
+									<animationView id="444756231772993" imagename="Particle2"></animationView>
+								</animation>
+							</imageView>
+						</fireworks>
+					</emitter>
+				</spinningring4>
+				
+				<!--Cloud Emitters-->
+				<emitter name="cloud1Emitter" id="12893" emitNumber="1" maxCount="1" delay="{(Math.random()*60)}">
+					<cloud name="cloud1" id="111791" position="{-300},{(Math.random()*2400)-1300}" scale="135,105" velocity="{(Math.random()*3)}+2,{0}" delay="80">
+						<imageView id="11892" name="cloud1View" imagename="Cloud1" width="135" height="105" zIndex="5"></imageView>
+					</cloud>
+				</emitter>
+				<emitter name="cloud2Emitter" id="13893" emitNumber="1" maxCount="1" delay="{(Math.random()*60)}">
+					<cloud name="cloud2" id="111793" position="{-300},{(Math.random()*2400)-1300}" scale="204,88" velocity="{(Math.random()*4)}+3,{0}" delay="90">
+						<imageView id="11894" name="cloud2View" imagename="Cloud2" width="204" height="88" zIndex="5"></imageView>
+					</cloud>
+				</emitter>
+				<emitter name="cloud3Emitter" id="14893" emitNumber="1" maxCount="1" delay="{(Math.random()*60)}">
+					<cloud name="cloud3" id="111795" position="{-300},{(Math.random()*2400)-1300}" scale="104,57" velocity="{(Math.random()*2)+1},{0}" delay="120">
+						<imageView id="11896" name="cloud3View" imagename="Cloud3" width="104" height="57" zIndex="5"></imageView>
+					</cloud>
+				</emitter>
+				
+				<!--Balloon Emitters-->
+				<emitter name="balloonEmitter" id="15593" emitNumber="1" maxCount="1" totalCount="10" delay="{(Math.random()*120)}" cached="true">
+					<balloon name="balloon" id="155795" maxVelocity="100,7" position="{-300},{(Math.random()*2200)-1000}" scale="90,90" velocity="{(Math.random()*10)+10},{(Math.random()*-8)-3}" delay="60">
+						<imageView id="15596" name="balloonView" imagename="Balloon" width="100" height="100" zIndex="20">
+							<balloonCollideEvent id="5555597"/>
+						</imageView>
+						<animation name="cycle" id="333201" fps="17" cycle="continuous" imagewidth="1900" imageheight="100" scale="100,100" currentrow="0" rowmap="0">
+							<animationView id="333202" imagename="Balloon"></animationView>
+						</animation>
+						<balloonExplodeAction id="4448110">
+							<setFn id="33331777744464" targetId="5555597" targetMetatype="model" targetAttr="listen" param1="0"/>
+							<setFn id="4446017"  targetMetatype="model" targetId="333201" targetAttr="currentrow" param1="1"/>
+							<setFn id="4555017"  targetMetatype="model" targetId="333201" targetAttr="animstep" param1="0"/>
+							<hide id="4446016" delay="1" targetId="15596"/>
+							<hide id="4446031" delay="1" targetMetatype="model" targetId="155795"/>
+							<destroy id="4445632" delay="1.5" targetId="15596"/>
+							<destroy id="4445633" delay="1.5" targetMetatype="model" targetId="155795"/>
+							<setFn id="4445633111" targetId="155795" targetAttr="acceleration" param1="0,.98"/>
+							<setFn id="4445633123" targetId="155795" targetAttr="velocity" param1="0,10"/>
+						</balloonExplodeAction>
+						<emitter name="moneyBagEmitter" id="7774477793" emitNumber="1" maxCount="1" totalCount="1" delay="{(Math.random()*60)}" cached="true">
+							<moneybag name="moneyBag" id="77744777795" fixedRotation="false" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="24,33" velocity="{(Math.random()*10)-5},{(Math.random()*-10)-5}" maxVelocity="100,20" delay="{(Math.random()*5)+5}">
+								<scoreAction id="44455522233331">
+									<emit id="44455522233344" targetId="44455522233300"/>
+									<hide id="44455522233345" targetId="77744777896"/>
+									<hide id="77755522233346" targetMetatype="model" targetId="77744777795"/>
+									<destroy id="77755522233347" delay="1.5" targetId="77744777896"/>
+									<destroy id="77755522233348" delay="1.5" targetId="77744777795"/>
+								</scoreAction>
+								<imageView id="77744777896" name="moneyBagView" imagename="MoneyBag" width="35" height="35">
+									<moneybagPlayerCollideEvent id="444555222333353"/>
+								</imageView>
+								<emitter name="scoreEmitter5" id="44455522233300" emitNumber="1" totalCount="1" cached="true">
+									<scoreicon name="scoreicon5" id="4445552222" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="31,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+										<imageView id="4445552223" name="scoreView5" imagename="50Points" width="31" height="24"></imageView>
+									</scoreicon>
+								</emitter>
+								<animation name="cycle" id="444555992" fps="3" cycle="continuous" imagewidth="245" imageheight="35" scale="35,35"  currentrow="0">
+									<animationView id="4445559993" imagename="MoneyBag"></animationView>
+								</animation>
+							</moneybag>
+						</emitter>
+					</balloon>
+				</emitter>
+				<!--<emitter name="balloonEmitter1" id="888915593" emitNumber="1" maxCount="1" totalCount="6" delay="{(Math.random()*120)}" cached="true">
+					<balloon name="balloon1" id="8889155795" maxVelocity="100,7" position="{300},{(Math.random()*2200)-1000}" scale="90,90" velocity="{(Math.random()*-10)-10},{(Math.random()*-8)-3}" delay="60">
+						<imageView id="888915596" name="balloonView" imagename="Balloon" width="100" height="100" zIndex="20">
+							<balloonCollideEvent id="888997"/>
+						</imageView>
+						<animation name="cycle" id="8889201" fps="17" cycle="continuous" imagewidth="1900" imageheight="100" scale="100,100" currentrow="0" rowmap="0">
+								<animationView id="8889202" imagename="Balloon"></animationView>
+						</animation>
+						<balloonExplodeAction id="88898110">
+							<setFn id="4441777744464" targetId="888997" targetMetatype="model" targetAttr="listen" param1="0"/>
+							<setFn id="88896017"  targetMetatype="model" targetId="8889201" targetAttr="currentrow" param1="1"/>
+							<setFn id="88895017"  targetMetatype="model" targetId="8889201" targetAttr="animstep" param1="0"/>
+							<hide id="88896016" delay="1" targetId="888915596"/>
+							<hide id="88896031" delay="1" targetMetatype="model" targetId="8889155795"/>
+							<destroy id="88895632" delay="1.5" targetId="888915596"/>
+							<destroy id="88895633" delay="1.5" targetId="8889155795"/>
+							<setFn id="4445633222" targetId="8889155795" targetAttr="acceleration" param1="0,.98"/>
+							<setFn id="4445633333" targetId="8889155795" targetAttr="velocity" param1="0,10"/>
+						</balloonExplodeAction>
+						<emitter name="moneyBagEmitter2" id="8884477793" emitNumber="1" totalCount="1" delay="{(Math.random()*60)}" cached="true">
+							<moneybag1 name="moneyBag1" id="88844777795" fixedRotation="false" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="24,33" velocity="{(Math.random()*10)-5},{(Math.random()*-10)-5}" maxVelocity="100,20" delay="{(Math.random()*5)+5}">
+								<scoreAction id="88855522233331">
+									<emit id="88855522233344" targetId="88855522233300"/>
+									<hide id="88855522233345" targetId="88844777896"/>
+									<hide id="88855522233346" targetMetatype="model" targetId="88844777795"/>
+									<destroy id="88855522233347" delay="1.5" targetId="88844777896"/>
+									<destroy id="88855522233348" delay="1.5" targetId="88844777795"/>
+								</scoreAction>
+								<imageView id="88844777896" name="moneyBagView2" imagename="MoneyBag" width="35" height="35">
+									<moneybagPlayerCollideEvent id="888555222333353"/>
+								</imageView>
+								<emitter name="scoreEmitter6" id="88855522233300" emitNumber="1" totalCount="1">
+									<scoreicon name="scoreicon6" id="8885552222" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="31,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+										<imageView id="8885552223" name="scoreView6" imagename="50Points" width="31" height="24"></imageView>
+									</scoreicon>
+								</emitter>
+								<animation name="cycle" id="888555992" fps="3" cycle="continuous" imagewidth="245" imageheight="35" scale="35,35"  currentrow="0">
+									<animationView id="8885559993" imagename="MoneyBag"></animationView>
+								</animation>
+							</moneybag1>
+						</emitter>
+					</balloon>
+				</emitter>-->
+				<emitter name="balloonMedEmitter" id="123456795543" emitNumber="1" maxCount="1" totalCount="4" delay="{(Math.random()*120)}" cached="true">
+					<balloonMed name="balloonMed" id="12345679554795" maxVelocity="100,7" position="{-300},{(Math.random()*2200)-1000}" scale="75,75" velocity="{(Math.random()*7)+7},{(Math.random()*-6)-2}" delay="60">
+						<imageView id="12345679554596" name="balloonMedView" imagename="BalloonMed" width="85" height="85" zIndex="20">
+							<balloonCollideEvent id="12345679554597"/>
+						</imageView>
+						<animation name="cycle" id="12345679554201" fps="17" cycle="continuous" imagewidth="1700" imageheight="85" scale="85,85" currentrow="0" rowmap="0">
+							<animationView id="12345679554202" imagename="BalloonMed"></animationView>
+						</animation>
+						<balloonExplodeAction id="12345679554110">
+							<setFn id="5551777744464" targetId="12345679554597" targetMetatype="model" targetAttr="listen" param1="0"/>
+							<setFn id="12345679554017"  targetMetatype="model" targetId="12345679554201" targetAttr="currentrow" param1="1"/>
+							<setFn id="12345679554117"  targetMetatype="model" targetId="12345679554201" targetAttr="animstep" param1="0"/>
+							<hide id="12345679554016" delay="1" targetId="12345679554596"/>
+							<hide id="12345679554031" delay="1" targetMetatype="model" targetId="12345679554795"/>
+							<destroy id="12345679554632" delay="1.5" targetId="12345679554596"/>
+							<destroy id="12345679554633" delay="1.5" targetMetatype="model" targetId="12345679554795"/>
+							<setFn id="12345679554111" targetId="12345679554795" targetAttr="acceleration" param1="0,.98"/>
+							<setFn id="12345679554123" targetId="12345679554795" targetAttr="velocity" param1="0,10"/>
+						</balloonExplodeAction>
+					</balloonMed>
+				</emitter>
+				<emitter name="balloonSmallEmitter" id="4444556795543" emitNumber="1" maxCount="1" totalCount="4" delay="{(Math.random()*120)}" cached="true">
+					<balloonSmall name="balloonSmall" id="44445579554795" maxVelocity="100,7" position="{-300},{(Math.random()*2200)-1200}" scale="75,75" velocity="{(Math.random()*5)+5},{(Math.random()*-4)-1}" delay="60">
+						<imageView id="44445579554596" name="balloonSmallView" imagename="BalloonMed" width="75" height="75" zIndex="35">
+							<balloonCollideEvent id="44445579554597"/>
+						</imageView>
+						<animation name="cycle" id="44445579554201" fps="17" cycle="continuous" imagewidth="1500" imageheight="75" scale="75,75" currentrow="0" rowmap="0">
+							<animationView id="44445579554202" imagename="BalloonSmall"></animationView>
+						</animation>
+						<balloonExplodeAction id="44445579554110">
+							<setFn id="44445579554017" targetMetatype="model" targetId="44445579554201" targetAttr="currentrow" param1="1"/>
+							<setFn id="44445579554117" targetMetatype="model" targetId="44445579554201" targetAttr="animstep" param1="0"/>
+							<hide id="44445579554016" delay="1" targetId="44445579554596"/>
+							<hide id="44445579554031" delay="1" targetMetatype="model" targetId="44445579554795"/>
+							<destroy id="444455679554632" delay="1.5" targetId="44445579554596"/>
+							<destroy id="444455679554633" delay="1.5" targetMetatype="model" targetId="44445579554795"/>
+							<setFn id="44445567954111" targetId="44445579554795" targetAttr="acceleration" param1="0,.98"/>
+							<setFn id="444455679554123" targetId="44445579554795" targetAttr="velocity" param1="0,10"/>
+						</balloonExplodeAction>
+					</balloonSmall>
+				</emitter>
+				<!--Buzzard Emitters-->
+				<emitter name="buzzardEmitter" id="333334493" emitNumber="1" maxCount="3" totalCount="6" delay="{(Math.random()*10)+2}">
+					<buzzard name="buzzard" id="333334494" position="{280},{(Math.random()*2000)-1200}" scale="42,64" velocity="{(Math.random()*-8)-4},{0}" delay="50">
+							<imageView name="buzzardView" id="333334498" imagename="Buzzard" width="42" height="64" zIndex="10">
+								<animation name="cycle" id="333334499" fps="10" cycle="continuous" imagewidth="462" imageheight="192" scale="42,64" currentrow="2">
+									<animationView id="333334500" imagename="Buzzard"></animationView>
+								</animation>
+							</imageView>
+							<emitter name="buzzardDroppingEmitter1" id="88855577794" emitNumber="1" maxCount="1" totalCount="2" delay="{(Math.random()*2.5)+1}">
+								<buzzarddropping name="buzzardDropping1" id="88855577795" fixedRotation="false" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="24,33" velocity="{(Math.random()*30)+10},{(Math.random()*30)+10}" acceleration="0,.4" delay="7">
+									<droppingHideAction id ="8885007774457">
+										<hide id="8885007774456" targetid="88855577796"/>
+									</droppingHideAction>
+									<imageView id="88855577796" name="buzzardDroppingView1" imagename="Particle1" width="32" height="32" zIndex="50">
+										<animation name="cycle" id="88855577797" fps="20" cycle="continuous" imagewidth="256" imageheight="512" scale="32,32" currentrow="9">
+											<animationView id="88855577798" imagename="Particle1"></animationView>
+										</animation>
+										<buzzarddroppingPlayerCollideEvent id="22001155577796"/>
+									</imageView>
+								</buzzarddropping>
+							</emitter>
+					</buzzard>
+				</emitter>
+				<emitter name="buzzardEmitter" id="444444493" emitNumber="1" maxCount="3" totalCount="6" delay="{(Math.random()*10)+2}">
+					<buzzard name="buzzard" id="444444494" position="{-280},{(Math.random()*2000)-1200}" scale="42,64" velocity="{(Math.random()*8)+4},{0}" delay="50">
+							<imageView name="buzzardView" id="444444498" imagename="Buzzard" width="42" height="64" zIndex="10">
+								<animation name="cycle" id="444444499" fps="10" cycle="continuous" imagewidth="462" imageheight="192" scale="42,64" currentrow="1">
+									<animationView id="444444500" imagename="Buzzard"></animationView>
+								</animation>
+							</imageView>
+							<emitter name="buzzardDroppingEmitter2" id="88800077794" emitNumber="1" maxCount="1" totalCount="2" delay="{(Math.random()*2.5)+1}">
+								<buzzarddropping name="buzzardDropping2" id="88800077795" fixedRotation="false" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="24,33" velocity="{(Math.random()*30)+10},{(Math.random()*30)+10}" acceleration="0,.4" delay="7">
+									<droppingHideAction id ="9995007774457">
+										<hide id="9995007774456" targetid="88800077796"/>
+									</droppingHideAction>
+									<imageView id="88800077796" name="buzzardDroppingView1" imagename="Particle1" width="32" height="32" zIndex="50">
+										<animation name="cycle" id="88800077797" fps="20" cycle="continuous" imagewidth="256" imageheight="512" scale="32,32" currentrow="9">
+											<animationView id="88800077798" imagename="Particle1"></animationView>
+										</animation>
+										<buzzarddroppingPlayerCollideEvent id="220011522007796"/>
+									</imageView>
+								</buzzarddropping>
+							</emitter>
+					</buzzard>
+				</emitter>
+				<!--Fountains-->
+				<!--<emitter name="fountainEmitter1" id="777992612893" emitNumber="1" maxCount="1" delay="{(Math.random()*7)+4}">
+					<fountain name="fountain1" id="7779926791" position="-215,915" scale="34,57" delay="2">
+						<imageView id="7779926892" name="fountainView1" imagename="Fountain" width="34" height="57" zIndex="10">
+							<animation name="cycle" id="7779926992" fps="10" cycle="continuous" imagewidth="816" imageheight="57" scale="34,57"  currentrow="0">
+								<animationView id="77799262993" imagename="Fountain"></animationView>
+							</animation>
+						</imageView>
+					</fountain>
+				</emitter>
+				<emitter name="fountainEmitter2" id="888992612893" emitNumber="1" maxCount="1" delay="{(Math.random()*8)+4.75}">
+					<fountain name="fountain2" id="8889926791" position="-125,915" scale="34,57" delay="2">
+						<imageView id="8889926892" name="fountainView2" imagename="Fountain" width="34" height="57" zIndex="10">
+							<animation name="cycle" id="8889926992" fps="10" cycle="continuous" imagewidth="816" imageheight="57" scale="34,57"  currentrow="0">
+								<animationView id="88899262993" imagename="Fountain"></animationView>
+							</animation>
+						</imageView>
+					</fountain>
+				</emitter>
+				<emitter name="fountainEmitter5" id="44422222612893" emitNumber="1" maxCount="1" delay="{(Math.random()*10)+4.5}">
+					<fountain name="fountain5" id="4442222226791" position="-35,-35" scale="34,57" delay="2">
+						<imageView id="4442222226892" name="fountainView5" imagename="Fountain" width="34" height="57" zIndex="10">
+							<animation name="cycle" id="4442222226992" fps="10" cycle="continuous" imagewidth="816" imageheight="57" scale="34,57"  currentrow="0">
+								<animationView id="44422222262993" imagename="Fountain"></animationView>
+							</animation>
+						</imageView>
+					</fountain>
+				</emitter>
+				<emitter name="fountainEmitter6" id="1118762893" emitNumber="1" maxCount="1" delay="{(Math.random()*8)+2.75}">
+					<fountain name="fountain6" id="11187626791" position="35,-35" scale="34,57" delay="2">
+						<imageView id="11187626892" name="fountainView6" imagename="Fountain" width="34" height="57" zIndex="10">
+							<animation name="cycle" id="11187626992" fps="10" cycle="continuous" imagewidth="816" imageheight="57" scale="34,57"  currentrow="0">
+								<animationView id="111876262993" imagename="Fountain"></animationView>
+							</animation>
+						</imageView>
+					</fountain>
+				</emitter>
+				<emitter name="fountainEmitter8" id="77733338762893" emitNumber="1" maxCount="1" delay="{(Math.random()*7)+1.25}">
+					<fountain name="fountain8" id="777333387626791" position="200,-855" scale="34,57" delay="2">
+						<imageView id="777333387626892" name="fountainView8" imagename="Fountain" width="34" height="57" zIndex="10">
+							<animation name="cycle" id="777333387626992" fps="10" cycle="continuous" imagewidth="816" imageheight="57" scale="34,57"  currentrow="0">
+								<animationView id="7773333876262993" imagename="Fountain"></animationView>
+							</animation>
+						</imageView>
+					</fountain>
+				</emitter>-->
+				<!--Monster Emitters-->
+				<emitter name="puffyEmitter" id="49" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*4)+2}">
+					<npc name="npcPuffy" id="51" position="200,1135" scale="32,32">
+						<npcExplodeAction id="8110">
+							<setFn id="4433765655516" targetMetatype="model" targetId="30008" targetAttr="listen" param1="0"/>
+							<emit id="44337656545556017" targetId="3333333300"/>
+							<emit id="6017" targetId="400"/>
+							<hide id="6016" targetId="53"/>
+							<hide id="44337656545556016" targetMetatype="model" targetId="51"/>
+							<destroy id="5633" delay="1.5" targetId="51"/>
+						</npcExplodeAction>
+						<nothingAction id="34444008"/>
+						<puffyView name="puffyView" id="53" width="32" height="32" zIndex="50">
+							<npcCollideEvent id="30008"/>
+						</puffyView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="54" currentrow="0" rowmap="0" tween="false">
+							<animationView id="55" imagename="Puffy"></animationView>
+						</animation>
+						<emitter name="explode" id="400" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="401"></explosionEmitterView>
+							<debris name="star" id="402" scale="24,24">
+								<debrisView name="star" id="403" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="3333333300" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon6" id="60000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="60000000003" name="scoreView6" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="ghostEmitter" id="334444466" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*4)+2}">
+					<npc name="npcGhost" id="334444467" position="120,623" scale="32,32">
+						<npcExplodeAction id="33444448310">
+							<setFn id="33444445516" targetMetatype="model" targetId="334444440008" targetAttr="listen" param1="0"/>
+							<emit id="3344444325517" targetId="334444400"/>
+							<emit id="33444445517" targetId="33444442300"/>
+							<hide id="33444445516" targetId="334444468"/>
+							<hide id="33444446016" targetMetatype="model" targetId="334444467"/>
+							<destroy id="33444445533" targetMetatype="model" delay="1.5" targetId="334444467"/>
+						</npcExplodeAction>
+						<nothingAction id="334444440543"/>
+						<ghostView name="ghostView" id="334444468" width="32" height="32" zIndex="60">
+							<npcCollideEvent id="334444440008"/>
+						</ghostView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="334444469" currentrow="0" rowmap="0" tween="false">
+							<animationView id="334444470" imagename="Ghost"></animationView>
+						</animation>
+						<emitter name="explode" id="33444442300" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="2301"></explosionEmitterView>
+							<debris name="star" id="33444442302" scale="24,24">
+								<debrisView name="star" id="33444442303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="334444400" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon11" id="334444402" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="334444403" name="scoreView11" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="pirateEmitter1" id="443344444449" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*4)+2}">
+					<npc name="npcPirate1" id="4433444444451" position="-120,-972" scale="32,32">
+						<npcExplodeAction id="44334444444310">
+							<setFn id="443355555555516" targetMetatype="model" targetId="4433444444430008" targetAttr="listen" param1="0"/>
+							<emit id="443355555556017" targetId="5555555511"/>
+							<emit id="443344444446017" targetId="44334444444400"/>
+							<hide id="443344444446016" targetId="4433444444453"/>
+							<hide id="443344444446018" targetMetatype="model" targetId="4433444444451"/>
+							<destroy id="443344444445633" targetMetatype="model" delay="1.5" targetId="4433444444451"/>
+						</npcExplodeAction>
+						<pirateView name="pirateView1" id="4433444444453" width="32" height="32" zIndex="60">
+							<npcCollideEvent id="4433444444430008"/>
+						</pirateView>
+						<animation  id="4433444444454" name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" currentrow="0" rowmap="0" tween="false">
+							<animationView id="4433444444455" imagename="Pirate"></animationView>
+						</animation>
+						<emitter name="explode" id="44334444444400" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="401"></explosionEmitterView>
+							<debris name="star" id="44334444444402" scale="24,24">
+								<debrisView name="star" id="44334444444403" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="5555555511" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon8" id="8111000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="8111100003" name="scoreView8" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="pirateEmitter" id="56" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*6)+4}">
+					<npc name="npcPirate" id="57" position="0,-32" scale="32,32">
+						<npcExplodeAction id="8010">
+							<setFn id="111144445516" targetMetatype="model" targetId="20008" targetAttr="listen" param1="0"/>
+							<emit id="11114444227017" targetId="6666666600"/>
+							<emit id="7017" targetId="300"/>
+							<hide id="7016" targetId="58"/>
+							<hide id="111144446018" targetMetatype="model" targetId="57"/>
+							<destroy id="5733" targetMetatype="model" delay="1.5" targetId="57"/>
+						</npcExplodeAction>
+						<pirateView name="pirateView" id="58" width="32" height="32" zIndex="60">
+							<npcCollideEvent id="20008"/>
+						</pirateView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="59" currentrow="0" rowmap="0" tween="false">
+							<animationView id="60" imagename="Pirate"></animationView>
+						</animation>
+						<emitter name="explode" id="300" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="301"></explosionEmitterView>
+							<debris name="star" id="302" scale="24,24">
+								<debrisView name="star" id="303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="6666666600" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon9" id="90000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="90000000003" name="scoreView9" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="goopyEmitter" id="61" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*8)+4}">
+					<npc name="npcGoopy" id="62" position="-150,-532" scale="32,32">
+						<npcExplodeAction id="8210">
+							<setFn id="44433335516" targetMetatype="model" targetId="30008" targetAttr="listen" param1="0"/>
+							<emit id="444333325017" targetId="777777700"/>
+							<emit id="5017" targetId="1300"/>
+							<hide id="5016" targetId="63"/>
+							<hide id="44433336018" targetMetatype="model" targetId="62"/>
+							<destroy id="5833" targetMetatype="model" delay="1.5" targetId="62"/>
+						</npcExplodeAction>
+						<goopyView name="goopyView" id="63" width="32" height="32" zIndex="80">
+							<npcCollideEvent id="30008"/>
+						</goopyView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="64" currentrow="0" rowmap="0" tween="false">
+							<animationView id="65" imagename="Goopy"></animationView>
+						</animation>
+						<emitter name="explode" id="1300" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="1301"></explosionEmitterView>
+							<debris name="star" id="1302" scale="24,24">
+								<debrisView name="star" id="1303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="777777700" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon10" id="99000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="99000000003" name="scoreView10" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				<emitter name="ghostEmitter" id="66" emitNumber="1" maxCount="1" totalCount="1" cached="true" delay="{(Math.random()*6)+4}">
+					<npc name="npcGhost" id="67" position="-170,850" scale="32,32">
+						<npcExplodeAction id="8310">
+							<setFn id="1111445516" targetMetatype="model" targetId="40008" targetAttr="listen" param1="0"/>
+							<emit id="111144325517" targetId="88888800"/>
+							<emit id="5517" targetId="2300"/>
+							<hide id="5516" targetId="68"/>
+							<hide id="1111446018" targetMetatype="model" targetId="67"/>
+							<destroy id="5533" targetMetatype="model" delay="1.5" targetId="67"/>
+						</npcExplodeAction>
+						<ghostView name="ghostView" id="68" width="32" height="32" zIndex="60">
+							<npcCollideEvent id="40008"/>
+						</ghostView>
+						<animation name="walk" fps="10" cycle="reverse" imagewidth="96" imageheight="128" scale="32,32" id="69" currentrow="0" rowmap="0" tween="false">
+							<animationView id="70" imagename="Ghost"></animationView>
+						</animation>
+						<emitter name="explode" id="2300" emitNumber="6" totalCount="6" cached="true"><explosionEmitterView id="2301"></explosionEmitterView>
+							<debris name="star" id="2302" scale="24,24">
+								<debrisView name="star" id="2303" imagename="Star" width="16" height="16"></debrisView>
+							</debris>
+						</emitter>
+						<emitter name="scoreEmitter" id="88888800" emitNumber="1" totalCount="1" cached="true">
+							<scoreicon name="scoreicon11" id="11000000002" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" scale="43,24" velocity="{(Math.random()*10)-5},{(Math.random()*-10)}" delay="1">
+								<imageView id="11000000003" name="scoreView11" imagename="250Points" width="43" height="24"></imageView>
+							</scoreicon>
+						</emitter>
+					</npc>
+				</emitter>
+				
+				<!--Lily Emitter-->
+				<!--<emitter name="lilyEmitter" id="9994493" emitNumber="1" maxCount="1" delay="1">
+					<lily name="lily" id="9999947" position="-100,1300" scale="47,40" minVelocity="-10000,0" maxVelocity="10000,0" fixedRotation="true" goal="player" goalstrength="5" goalmethod="astar">
+							<rollAction id="999977798">
+								<setFn id="999977797" targetId="99999101" targetAttr="currentrow" param1="3"/>
+								<setFn id="999977797" targetId="99999101" delay="1" targetAttr="currentrow" param1="-1"/>
+							</rollAction>
+							<imageView name="lilyView" id="9999948" imagename="Lily" width="47" height="40" zIndex="44">
+								<animation name="cycle" id="99999101" fps="10" cycle="continuous" imagewidth="846" imageheight="120" scale="47,40"  currentrow="-1" rowmap="2,2,2,1,1,1,1,2">
+									<animationView id="99999102" imagename="Lily"></animationView>
+								</animation>
+							</imageView>
+					</lily>
+				</emitter>-->
+				
+				<!--Player-->
+				<player name="Sonic" id="9" scale="38,48">
+					<emitter name="crystalShooter" id="100" emitNumber="1" maxCount="10" totalCount="75" cached="true">
+						<emitterView id="90">
+							<keyDown_1 id="91"></keyDown_1>
+						</emitterView>
+						<bullet name="bullet" id="93" scale="32,45" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{-60},{10}" delay="2">
+							<bulletHideAction id="94">
+								<hide id="95" targetId="96"/>
+							</bulletHideAction>
+							<particleView name="bulletView" id="96" crop="32,45" imagename="Bullet" width="16" height="22" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="40">
+								<particleCollideEvent id="97"/>
+								<animation name="cycle" id="101" fps="15" cycle="continuous" imagewidth="112" imageheight="22" scale="16,22" currentRow="0" rowmap="0">
+									<animationView id="102" imagename="Bullet"></animationView>
+								</animation>
+							</particleView>
+						</bullet>
+						<emitAction id="98">
+							<setFn id="103" targetId="30" targetAttr="currentrow" param1="5"/>
+							<emit delay=".1" id="99"/>
+							<setFn id="104" targetId="30" delay=".3" targetAttr="currentrow" param1="0"/>
+						</emitAction>
+					</emitter>
+					<emitter name="crystalShooter" id="200" emitNumber="1" maxCount="10" totalCount="75" cached="true">
+						<emitterView id="190">
+							<keyDown_2 id="191"></keyDown_2>
+						</emitterView>
+						<bullet name="bullet" id="193" scale="32,45" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{60},{10}" delay="2">
+							<bulletHideAction id="194">
+								<hide id="195" targetId="196"/>
+							</bulletHideAction>
+							<particleView name="bulletView" id="196" crop="32,45" imagename="Bullet" width="16" height="22" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="100">
+								<particleCollideEvent id="197"/>
+								<animation name="cycle" id="201" fps="5" cycle="continuous" imagewidth="112" imageheight="22" scale="16,22" currentRow="0" rowmap="0">
+									<animationView id="202" imagename="Bullet"></animationView>
+								</animation>
+							</particleView>
+						</bullet>
+						<emitAction id="198">
+							<setFn id="203" targetId="30" targetAttr="currentrow" param1="4"/>
+							<emit delay=".1" id="199"/>
+							<setFn id="204" targetId="30" delay=".3" targetAttr="currentrow" param1="0"/>
+						</emitAction>
+					</emitter>
+					<scoreAction id="737847378"></scoreAction>
+					<moveLeftAction id="10">
+						<addV id="12" targetId="9" targetAttr="velocity" param1="-30,0"/>
+						<setFn id="13" targetId="30" targetAttr="currentrow" param1="3"/>
+					</moveLeftAction>
+					<moveRightAction id="14">
+						<addV id="16" targetId="9" targetAttr="velocity" param1="30,0"/>
+						<setFn id="17" targetId="30" targetAttr="currentrow" param1="1"/>
+					</moveRightAction>
+					<stopAnimationAction id="18">
+						<setFn id="19" targetId="30" delay=".3" targetAttr="currentrow" param1="0"/>
+					</stopAnimationAction>
+					<jumpAction id="20">
+						<setFn id="111777744464" targetId="34" targetMetatype="model" targetAttr="listen" param1="0"/>
+						<setFn id="111888888164" targetId="26" targetMetatype="model" targetAttr="listen" param1="0"/>
+						<addV id="21" targetId="9" targetAttr="velocity" param1="0,-130"/>
+						<setFn id="22" targetId="30" targetAttr="currentrow" param1="2"/>
+						<setFn id="40" targetId="30" delay=".4" targetAttr="currentrow" param1="0"/>
+						<setFn id="112315522" targetId="34" delay=".4" targetMetatype="model" targetAttr="listen" param1="1"/>
+						<setFn id="1118880008164" targetId="26" delay=".4" targetMetatype="model" targetAttr="listen" param1="1"/>
+					</jumpAction>
+					<dieAction id="11111331020">
+						<setFn id="11111444464" targetId="1" targetMetatype="model" targetAttr="listen" param1="0"/>
+						<setFn id="11344555564" targetId="9" targetMetatype="model" targetAttr="acceleration" param1="0,.98"/>
+						<setFn id="11118817774" targetId="9" targetMetatype="model" targetAttr="velocity" param1="0,10"/>
+						<setFn id="11118817774" targetId="9" targetMetatype="model" targetAttr="collidable" param1="false"/>
+						<setFn id="111223333464" targetId="30" targetMetatype="model" targetAttr="currentrow" param1="6"/>
+						<setFn id="111223331464" targetId="30"  delay=".2" targetMetatype="model" targetAttr="currentrow" param1="6"/>
+						<setFn id="1112231003464" targetId="30"  delay=".3" targetMetatype="model" targetAttr="currentrow" param1="6"/>
+						<setFn id="1112230001764" targetId="30"  delay=".4" targetMetatype="model" targetAttr="currentrow" param1="6"/>
+						<setFn id="11122314464" targetId="30"  delay="1" targetMetatype="model" targetAttr="currentrow" param1="6"/>
+						<setFn id="11111091554" targetId="9" delay="2" targetMetatype="model" targetAttr="bodyType" param1="0"/>
+						<setFn id="11118800774" targetId="9" delay="2" targetMetatype="model" targetAttr="position" param1="0,1245"/>
+						<setFn id="11000314464" targetId="30" delay="2" targetMetatype="model" targetAttr="currentrow" param1="0"/>
+						<setFn id="11111091774" targetId="9" delay="3" targetMetatype="model" targetAttr="bodyType" param1="2"/>
+						<setFn id="11111444467" targetId="1" delay="3" targetMetatype="model" targetAttr="listen" param1="1"/>
+					</dieAction>
+					<playerView id="23" width="38" height="48" zIndex="45">
+						<tapEvent id="34"></tapEvent>
+						<swipeleftEvent id="35"></swipeleftEvent>
+						<swiperightEvent id="36"></swiperightEvent>
+						<keyUp_a id="80"></keyUp_a>
+						<keyUp_d id="81"></keyUp_d>
+						<keyEvent_a id="24"></keyEvent_a>
+						<keyEvent_d id="25"></keyEvent_d>
+						<keyEvent_c id="26"></keyEvent_c>
+						<playerRingCollideEvent id="8376366663"/>
+						<playerRing1CollideEvent id="7376366663"/>
+						<playerRing2CollideEvent id="6376366663"/>
+						<playerRing3CollideEvent id="5376366663"/>
+						<playerRing4CollideEvent id="4376333363"/>
+						<playerMoneybagCollideEvent id="3376333363"/>
+						<playerMoneybag1CollideEvent id="2276333363"/>
+						<playerNpcCollideEvent id="2333550333364"/>
+					</playerView>
+					<animation name="walk" id="30" fps="10" cycle="continuous" imagewidth="304" imageheight="336" scale="38,48" currentrow="0" rowmap="0" tween="true">
+						<animationView id="31" imagename="Sonic"></animationView>
+					</animation>
+					<camera id="32" name="mainCam" content="rect" position="{[model.parent.position.x]-300},{[model.parent.position.y]-400}" scale="1200,1600">
+						<cameraView id="33" x="[model.screenPosition.x]" y="[model.screenPosition.y]"></cameraView>
+					</camera>
+				</player>
+				
+				<!--Barrier walls-->
+				<barrierwall id="11891" position="390,-250" scale="100,3200"></barrierwall>
+				<barrierwall id="11893" position="-390,-250" scale="100,3200"></barrierwall>
+				<barrierwall id="11895" position="0,1432" scale="800,100"></barrierwall>
+				<barrierwall id="11897" position="0,-1432" scale="800,400"></barrierwall>
+				<coveringwall id="77447711891" bodyType="0" position="424,-250" scale="293,3200"><wallView id="99111111999" fill="#000000" zIndex="100"></wallView></coveringwall>
+				<coveringwall id="77447711893" bodyType="0" position="-424,-250" scale="293,3200"><wallView id="99111111998" fill="#000000" zIndex="100"></wallView></coveringwall>
+				<coveringwall id="77447711895" bodyType="0" position="0,1579" scale="1600,500"><wallView id="99111111997" fill="#000000" zIndex="100"></wallView></coveringwall>
+				<coveringwall id="77447711897" bodyType="0" position="0,-1379" scale="1600,710"><wallView id="99111111996" fill="#000000" zIndex="100"></wallView></coveringwall>
+			</level>
+		</game>
+	</data>
+</root>
+
+

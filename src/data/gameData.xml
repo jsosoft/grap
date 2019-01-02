@@ -1,0 +1,502 @@
+﻿
+<root>
+
+	<settings>
+		<SYSTEM_ATTRIBUTES>(metatype|typename|inheritsFrom|content|tag|tagName|tagName|data|reverse|loop|dirty|_super)</SYSTEM_ATTRIBUTES>
+		<KEYWORDS>this,model,controller,view,parent</KEYWORDS>
+		<COLLISION_CATEGORIES>player,jet,explosion</COLLISION_CATEGORIES>
+		<GAME_REFRESH_FPS>60</GAME_REFRESH_FPS>
+		<GOAL_REFRESH_FPS>3</GOAL_REFRESH_FPS>
+		<RENDER_REFRESH_FPS>0</RENDER_REFRESH_FPS>
+		<PHYSICS_REFRESH_FPS>0</PHYSICS_REFRESH_FPS>
+		<VELOCITY_ITERATIONS>1</VELOCITY_ITERATIONS>
+		<POSITION_ITERATIONS>1</POSITION_ITERATIONS>
+		<KEY_EVENTS>keypress,keydown,keyup</KEY_EVENTS>
+		<MOUSE_EVENTS>mouseover,mouseout,mouseenter,mouseleave,mousemove,mousedown,mouseup,click,dblclick,dragstart,dragend</MOUSE_EVENTS>
+		<COLLIDE_EVENTS>collide,begincontact,endcontact,postsolve</COLLIDE_EVENTS>
+		<MOBILE_EVENTS>tap,taphold,swipe,swipeleft,swiperight,swipeup,swipedown,vmouseover,vmouseout,vmousedown,vmousemove,vclick,vmousecancel,orientationchange,scrollstart,scrollstop,pagebeforeload,pagebeforechange,pagechange,pagebeforeshow,pagebeforehide,pageshow,pagehide,pagecreate,pageinit,pageremove,updatelayout</MOBILE_EVENTS>
+		<ALT_MOBILE_EVENTS> orientationchange,pinch,rotate,swipemove,swipeone,swipetwo,swipethree,swipefour,swipeup,swiperightup,swiperight,swiperightdown,swipedown,swipeleftdown,swipeleft,swipeleftup,tapone,taptwo,tapthree,pinchopen,pinchclose,rotatecw,rotateccw,shake,shakefrontback,shakeleftright,shakeupdown</ALT_MOBILE_EVENTS> 
+	</settings>
+	
+	<resources>
+		<image typename="dragon" src="Images/dragon.png" alt="dragon" width="2250" height="630"></image>
+		<image typename="landscape" src="Images/NatureForests0050_M.jpg" alt="landscape" width="1600" height="1067"></image>
+		<image typename="tree" src="Images/tree.png" alt="tree" width="64" height="64"></image>
+		<image typename="tree02" src="Images/tree02.png" alt="tree" width="64" height="64"></image>
+		<image typename="fsm" src="Images/fsm.png" alt="fsm" width="2720" height="170"></image>
+		<image typename="jetFlatpack" src="Images/JetFlatpack.png" alt="jetFlatpack" width="900" height="405"></image>
+		<image typename="jetFlankerF" src="Images/JetFlankerF.png" alt="jetFlankerF" width="900" height="405"></image>
+		<image typename="jetThunderchief" src="Images/jetThunderchief.png" alt="jetThunderchief" width="900" height="405"></image>
+		<image typename="stealthBomber" src="Images/stealthBomber.png" alt="stealthBomber" width="900" height="405"></image>
+		<image typename="particles1" src="Images/particles2_1.png" alt="particles1" width="512" height="1024"></image>
+		<image typename="particles2" src="Images/particles2_2.png" alt="particles2" width="512" height="1024"></image>
+		<image typename="particle" src="Images/particle.png" alt="particles2" width="512" height="1024"></image>
+	</resources>
+	
+	<meta>
+		<models>
+			<model typename="score">
+				<attribute typename="points" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="model">
+				<attribute typename="delay" dt="float" defaultValue="0"/>
+				<attribute typename="fps" dt="float" defaultValue="60"/>
+				<attribute typename="content" dt="string" defaultValue="circle"/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="inheritsFrom" dt="string" defaultValue="model"/>
+				<!--<attribute typename="typename" dt="string" defaultValue="model"/>-->
+			</model>
+			<model typename="event" inheritsFrom="model">
+				<attribute typename="eventname" dt="string" defaultValue=""/>
+				<attribute typename="action" dt="string" defaultValue=""/>
+				<attribute typename="raiseOnce" dt="boolean" defaultValue="true"/>
+				<attribute typename="listen" dt="int" defaultValue="1"/>
+			</model>
+			<model typename="keyEvent" inheritsFrom="event">
+				<attribute typename="keyname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="keyEvent_w" inheritsFrom="keyEvent" eventname="keypress" keyname="w" action="moveForward"></model>
+			<model typename="keyEvent_s" inheritsFrom="keyEvent" eventname="keypress" keyname="s" action="moveBack"></model>
+			<model typename="keyEvent_a" inheritsFrom="keyEvent" eventname="keypress" keyname="a" action="rotateLeft"></model>
+			<model typename="keyEvent_d" inheritsFrom="keyEvent" eventname="keypress" keyname="d" action="rotateRight"></model>
+			<model typename="keyEvent_c" inheritsFrom="keyEvent" eventname="keypress" keyname="c" action="emit"></model>
+			<model typename="swipeupEvent" inheritsFrom="event" eventname="swipeup" action="moveForward"></model>
+			<model typename="swipedownEvent" inheritsFrom="event" eventname="swipedown" action="moveBack"></model>
+			<model typename="swipeleftEvent" inheritsFrom="event" eventname="swipeleft" action="rotateLeft"></model>
+			<model typename="swiperightEvent" inheritsFrom="event" eventname="swiperight" action="rotateRight"></model>
+			<model typename="tapEvent" inheritsFrom="event" eventname="tap" action="emit"></model>
+			<model typename="collideEvent" inheritsFrom="event">
+				<attribute typename="targettypes" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="npcCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="npcExplode" targettypes="particle,player"></model>
+			<model typename="particleCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="particleExplode" targettypes="jet,stealthBomber,jetFlankerF,jetThunderchief"></model>
+			<model typename="playerNpcCollideEvent" inheritsFrom="collideEvent" eventname="collide" action="playerExplode" targettypes="jet,stealthBomber,jetFlankerF,jetThunderchief,jetbullet"></model>
+
+			<model typename="action" inheritsFrom="model">
+				<attribute typename="actionname" dt="string" defaultValue=""/>
+			</model>
+			<model typename="moveForwardAction" actionname="moveForward" inheritsFrom="action"></model>
+			<model typename="moveBackAction" actionname="moveBack" inheritsFrom="action"></model>
+			<model typename="rotateRightAction" actionname="rotateRight" inheritsFrom="action"></model>
+			<model typename="rotateLeftAction" actionname="rotateLeft" inheritsFrom="action"></model>
+			<model typename="npcExplodeAction" actionname="npcExplode" inheritsFrom="action"></model>
+			<model typename="playerExplodeAction" actionname="playerExplode" inheritsFrom="action"></model>
+			<model typename="particleExplodeAction" actionname="particleExplode" inheritsFrom="action"></model>
+			<model typename="emitAction" actionname="emit" inheritsFrom="action"></model>
+			
+			<model typename="fn" inheritsFrom="model">
+				<attribute typename="targetId" dt="int" defaultValue=""/>
+				<attribute typename="targetName" dt="string" defaultValue=""/>
+				<attribute typename="targetTypename" dt="string" defaultValue=""/>
+				<attribute typename="targetMetatype" dt="string" defaultValue=""/>
+				<attribute typename="targetAttr" dt="string" defaultValue=""/>
+				<attribute typename="mapFn" dt="string" defaultValue=""/>
+				<attribute typename="param1" dt="string" defaultValue=""/>
+				<attribute typename="datatype" dt="string" defaultValue="int"/>
+				<attribute typename="arrayLength" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="setFn" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="add" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="subtract" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="multiply" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="divide" targetMetatype="model" inheritsFrom="fn" datatype="float"></model>
+			<model typename="addV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="subtractV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="multiplyV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="dotV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="crossV" targetMetatype="model" inheritsFrom="fn" datatype="b2vec2"></model>
+			<model typename="emit" targetMetatype="controller" inheritsFrom="fn" targetTypename="emitter"></model>
+			<model typename="destroy" targetMetatype="model" inheritsFrom="fn"></model>
+			<model typename="show" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="hide" targetMetatype="view" inheritsFrom="fn"></model>
+			<model typename="applyForce" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyImpulse" targetMetatype="model" inheritsFrom="fn">
+				<attribute typename="force" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="point" dt="b2vec2" defaultValue="0,0"/>
+			</model>
+			<model typename="applyTorque" targetMetatype="model" inheritsFrom="fn" mapFn="ApplyTorque"></model>
+			
+			<model typename="game" inheritsFrom="model" content="world" framework="box2d">
+				<attribute typename="scale" dt="b2vec2" defaultValue="1600,1067" scaleFactor="30"/>
+				<attribute typename="goalResolution" dt="b2vec2" defaultValue="30,30"/>
+				<attribute typename="gravity" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="listen" dt="int" defaultValue="1"/>
+			</model>
+			<model typename="object" inheritsFrom="model" position="0,0" scale="0,0" restitution=".3" framework="box2d">
+				<attribute typename="position" dt="b2vec2" getmap="GetPosition" setmap="SetPosition" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="screenPosition" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="orientation" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="direction" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="maxVelocity" dt="b2vec2" defaultValue="3000,3000" scaleFactor="30"/>
+				<attribute typename="minVelocity" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="acceleration" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="rotation" getmap="GetAngle" setmap="SetAngle" dt="float" defaultValue="0"/>
+				<attribute typename="friction" dt="float" defaultValue="0"/>
+				<attribute typename="density" dt="float" defaultValue="0.3"/>
+				<attribute typename="restitution" dt="float" defaultValue=".5"/>
+				<attribute typename="linearVelocity" dt="b2vec2" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="velocityNormal" dt="b2vec2" defaultValue="0"/>
+				<attribute typename="velocity" dt="b2vec2" getmap="GetLinearVelocity" setmap="SetLinearVelocity" defaultValue="0,0" scaleFactor="30"/>
+				<attribute typename="linearDamping" dt="float" getmap="GetLinearDamping" setmap="SetLinearDamping" defaultValue="0"/>
+				<attribute typename="angularVelocity" dt="float" getmap="GetAngularVelocity" setmap="SetAngularVelocity" defaultValue="0"/>
+				<attribute typename="angularImpulse" dt="float" defaultValue="0"/>
+				<attribute typename="angularDamping" dt="float" getmap="GetAngularDamping" setmap="SetAngularDamping" defaultValue="0"/>
+				<attribute typename="bodyType" dt="int" getmap="GetType" setmap="SetType" defaultValue="0"/>
+				<attribute typename="fixedRotation" dt="bool" defaultValue="false"/>
+				<attribute typename="collidable" dt="bool" defaultValue="false"/>
+				<attribute typename="collisionlist" dt="string" arrayLength="0" defaultValue=""/>
+			</model>
+			<model typename="actor" inheritsFrom="object" bodyType="2">
+				<attribute typename="goal" dt="string" defaultValue=""/>
+				<attribute typename="goalradius" dt="int" defaultValue="3000"/>
+				<attribute typename="goalAvoid" dt="bool" defaultValue="false"/>
+				<attribute typename="goalmethod" dt="string" defaultValue="astar"/>
+				<attribute typename="goalstrength" dt="float" defaultValue="1"/>
+				<attribute typename="goalOrientationStrength" dt="float" defaultValue="30"/>
+				<attribute typename="goalOrientationThresh" dt="float" defaultValue="20"/>
+				<attribute typename="goalListen" dt="bool" defaultValue="true"/>
+			</model>
+			<model typename="player" inheritsFrom="actor" content="circle" position="150,250" velocity="1,1	" minVelocity="0,0" maxVelocity="50,50" scale="55,50"  rotation="0" density=".7" restitution=".8" collidable="true" collisionlist="wall,tree,jet,jetFlankerF,jetThunderchief,jetbullet" angularDamping=".9" fixedRotation="false"></model>
+			<model typename="jet" inheritsFrom="particle" content="circle" position="80,210" velocity="{(Math.random()*20)+5},{(Math.random()*20)+5}" minVelocity="5,5" maxVelocity="20,20" scale="30,30" density=".3" restitution=".3" goal="player" goalmethod="astar" goalstrength="0" collisionlist="player,particle,jet" angularDamping=".7" fixedRotation="false"></model>
+			<model typename="jetFlankerF" inheritsFrom="particle" content="circle" position="80,210" velocity="{(Math.random()*10)+10},{(Math.random()*10)+10}" minVelocity="10,10" maxVelocity="15,15" scale="30,30" density=".3" restitution=".3" goal="player" goalmethod="astar" goalstrength="0" collisionlist="player,particle,jetFlankerF," angularDamping=".5" fixedRotation="false" goalOrientationStrength="30" goalOrientationThresh="20"></model>
+			<model typename="jetThunderchief" inheritsFrom="particle" content="circle" position="80,210" velocity="{(Math.random()*25)+10},{(Math.random()*25)+10}" minVelocity="10,10" maxVelocity="25,25" scale="30,30" density=".3" restitution=".3" goal="player" goalmethod="astar" goalstrength="0" collisionlist="player,particle,jetThunderchief" angularDamping=".3" fixedRotation="false" goalOrientationStrength="40" goalOrientationThresh="20"></model>
+			<model typename="stealthBomber" inheritsFrom="particle" content="circle" bodyType="1" position="0,0" velocity="0,0" scale="30,30" density=".3" restitution=".3" collisionlist="player,particle"></model>
+
+			<model typename="image" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="false"></model>
+			<model typename="wall" inheritsFrom="object" content="rect" position="0,0" scale="0,0" collidable="true" collisionlist="player" restitution=".3" density=".3"></model>
+			<model typename="tree" inheritsFrom="object" collidable="true" collisionlist="player"></model>
+			<model typename="tween" inheritsFrom="model" fps=".1" cycle="none"></model>
+			<model typename="emitter" inheritsFrom="model" emitNumber="1">
+				<attribute typename="emitNumber" dt="int" defaultValue="1"/>
+				<attribute typename="maxCount" dt="int" defaultValue="1"/>
+				<attribute typename="totalCount" dt="int" defaultValue="0"/>
+				<attribute typename="cached" dt="bool" defaultValue="false"/>
+			</model>
+			<model typename="particle" inheritsFrom="actor" content="circle" position="0,0" scale="0,0" velocity="0,0" collidable="true" friction="0" restitution=".8" collisionlist="wall,tree,jet,jetFlankerF,jetThunderchief,stealthBomber">
+				<attribute typename="cached" dt="bool" defaultValue="true"/>
+			</model>
+			<model typename="jetbullet" inheritsFrom="particle" collisionlist="player"></model>
+			<model typename="debris" inheritsFrom="particle" scale="10,10" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{(Math.random()*60)-30}, {(Math.random()*60)-30}" fixedRotation="false" density=".3" collidable="false" collisionlist="wall,tree,player" delay="1"></model>
+			<model typename="level" inheritsFrom="model"></model>
+			<model typename="animation" inheritsFrom="model" framework="">
+				<attribute typename="scale" dt="b2vec2" defaultValue="0,0"/>
+				<attribute typename="imagewidth" dt="int" defaultValue="0"/>
+				<attribute typename="imageheight" dt="int" defaultValue="0"/>
+				<attribute typename="cycle" dt="string" defaultValue="continuous"/>
+				<attribute typename="rowmap" dt="int" arrayLength="0" defaultValue=""/>
+				<attribute typename="animstep" dt="int" defaultValue="0"/>
+				<attribute typename="tween" dt="bool" defaultValue="false"/>
+				<attribute typename="direction" dt="int" defaultValue="1"/>
+				<attribute typename="currentrow" dt="int" defaultValue="0"/>
+				<attribute typename="autoRowCalc" dt="int" defaultValue="0"/>
+			</model>
+			<model typename="camera" inheritsFrom="actor" content="rect" position="0,0" scale="10,10" collidable="false" collisionlist="" rotation="0" bodyType="0"></model>
+		</models>
+	
+		<views>
+			<view typename="view">
+				<attribute typename="tag" dt="string" defaultValue="div"/>
+				<attribute typename="content" dt="string" defaultValue="rect"/>
+				<attribute typename="framework" dt="string" defaultValue=""/>
+				<attribute typename="visible" dt="bool" defaultValue="true"/>
+			</view>
+			<view typename="window" inheritsFrom="view" content="html">
+				<attribute typename="tagname" dt="string" defaultValue=""/>
+				<attribute typename="class" dt="string" defaultValue=""/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="0"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="0"/>
+				<attribute typename="zIndex" dt="int" defaultValue=""/>
+			</view>
+			<view typename="gameWindow" inheritsFrom="window" content="stage" tag="canvas" container="container" width="320" height="380" framework="kineticjs">
+				<attribute typename="container" dt="string" getmap="getContainer" setmap="setContainer" defaultValue="container"/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+			</view>
+			<view typename="statsWindow" inheritsFrom="window" content="html" tag="div" tagname="statsWindow" class=""></view>
+			<view typename="canvasElement" inheritsFrom="view" framework="kineticjs">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+				<attribute typename="x" dt="float" getmap="getX" setmap="setX" defaultValue="0"/>
+				<attribute typename="y" dt="float" getmap="getY" setmap="setY" defaultValue="0"/>
+				<attribute typename="offsetX" dt="float" getmap="getOffsetX" setmap="setOffsetX" defaultValue="{[view.width]/2}"/>
+				<attribute typename="offsetY" dt="float" getmap="getOffsetY" setmap="setOffsetY" defaultValue="{[view.height]/2}"/>
+				<attribute typename="crop" dt="int" arrayLength="2" defaultValue="0,0"/>
+				<attribute typename="width" dt="int" getmap="getWidth" setmap="setWidth" defaultValue="10"/>
+				<attribute typename="height" dt="int" getmap="getHeight" setmap="setHeight" defaultValue="10"/>
+				<attribute typename="rotation" dt="float" getmap="getRotation" setmap="setRotation" defaultValue="0"/>
+				<attribute typename="opacity" dt="int" getmap="getOpacity" setmap="setOpacity" defaultValue="100"/>
+				<attribute typename="strokeWidth" dt="int" getmap="getStrokeWidth" setmap="setStrokeWidth" defaultValue=""/>
+				<attribute typename="fill" dt="string" getmap="getFill" setmap="setFill" defaultValue=""/>
+				<attribute typename="zIndex" dt="int" getmap="getZIndex" setmap="setZIndex" defaultValue="0"/>
+			</view>
+			<view typename="playerView" inheritsFrom="canvasElement" content="image" imagename="dragon" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="55" height="51" strokeWidth="0" rotation="0" zIndex="6"></view>
+			<view typename="npcView" inheritsFrom="canvasElement" content="image" imagename="fsm" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="40" height="40" strokeWidth="0" crop="50,50" zIndex="-1"></view>
+			<view typename="cameraView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="0" height="0" opacity="5" visible="false" zIndex="5"></view>
+			<view typename="itemView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" rotation="[model.rotation]" opacity="75" zIndex="2"></view>
+			<view typename="wallView" inheritsFrom="canvasElement" content="rect" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" fill="#FF4719" zIndex="1"></view>
+			<view typename="imageView" inheritsFrom="canvasElement" content="image" x="[model.screenPosition.x]" y="[model.screenPosition.y]" width="[model.scale.x]" height="[model.scale.y]" rotation="[model.rotation]" opacity="100" zIndex="0"></view>
+			<view typename="tweenView" inheritsFrom="view"></view>
+			<view typename="animationView" inheritsFrom="view" visible="false">
+				<attribute typename="imagename" dt="string" defaultValue=""/>
+			</view>
+			<view typename="emitterView" inheritsFrom="view"></view>
+			<view typename="explosionEmitterView" inheritsFrom="emitterView"></view>
+			<view typename="jetEmitterView" inheritsFrom="emitterView"></view>
+			<view typename="particleView" inheritsFrom="canvasElement" content="image"></view>
+			<view typename="debrisView" inheritsFrom="particleView" width="10" height="10" x="[model.screenPosition.x]" y="[model.screenPosition.y]" rotation="[model.rotation]" opacity="100"></view>
+		</views>
+	</meta>
+	<data>
+		<game id="1">
+			<gameWindow id="2" name="grap"></gameWindow>
+			<statsWindow id="3"></statsWindow>
+			<level name="level1" id="4" scale="1600,1067">
+				<image name="bgImage" id="1000" position="0,0" style="tile" scale="1600,1067" tilescale="128,102">
+					<imageView id="1001" name="bgImageView" imagename="landscape"></imageView>
+				</image>
+				<wall name="leftWall" id="14" position="-800,0" scale="5,1067"></wall>
+				<wall name="rightWall" id="16" position="800,0" scale="5,1067"></wall>
+				<wall name="topWall" id="18" position="0,-533" scale="1600,5"></wall>
+				<wall name="bottomWall" id="20" position="0,535" scale="1600,5"></wall>
+				
+				<player name="dragon" id="36" scale="40,40">
+					<camera id="700" name="mainCam" content="rect" position="{[model.parent.position.x]-300},{[model.parent.position.y]-350}" scale="1200,1600"><cameraView id="701" x="[model.screenPosition.x]" y="[model.screenPosition.y]"></cameraView></camera>
+					<moveForwardAction id="8000">
+						<addV id="7000" targetId="36" targetAttr="velocity" param1="{[model.parent.parent.direction.x]*8},{[model.parent.parent.direction.y]*8}"/>
+					</moveForwardAction>
+					<moveBackAction id="8001">
+						<subtractV id="7001" targetId="36" targetAttr="velocity" param1="{[model.parent.parent.direction.x]*8},{[model.parent.parent.direction.y]*8}"/>
+					</moveBackAction>
+					<rotateRightAction id="8002">
+						<add id="7002" targetId="36" targetAttr="angularImpulse" param1="1.5"/>
+					</rotateRightAction>
+					<rotateLeftAction id="8003">
+						<add id="7003" targetId="36" targetAttr="angularImpulse" param1="-1.5"/>
+					</rotateLeftAction>
+					<playerExplodeAction id="9003">
+						<setFn id="9004" targetId="1" targetAttr="listen" param1="0"/>
+						<setFn id="9005" targetId="40" targetAttr="currentrow" param1="8"/>
+						<setFn id="9006" targetId="40" targetAttr="animstep" param1="0"/>
+						<setFn id="119006" targetId="36" targetAttr="angularImpulse" param1="0"/>
+						<setFn id="9007" targetId="40" targetAttr="autoRowCalc" param1="0"/>
+						<setFn id="9008" targetId="40" delay="1.5" targetAttr="currentrow" param1="0"/>
+						<setFn id="9009" targetId="40" delay="1.5" targetAttr="autoRowCalc" param1="1"/>
+						<setFn id="9010" targetId="36" delay="1.5" targetAttr="bodyType" param1="0"/>
+						<setFn id="9011" targetId="36" delay="1.5" targetAttr="position" param1="{(Math.random()*400)-200},{(Math.random()*400)-200}"/>
+						<setFn id="9012" targetId="36" delay="2" targetAttr="bodyType" param1="2"/>
+						<addV id="9013" targetId="36" delay="2" targetAttr="velocity" param1="{[model.parent.parent.direction.x]*10},{[model.parent.parent.direction.y]*10}"/>
+						<setFn id="9014" targetId="1" delay="2" targetAttr="listen" param1="1"/>
+					</playerExplodeAction>
+					<playerView name="dragon" id="37">
+						<keyEvent_w id="10000"/>
+						<keyEvent_s id="10001"/>
+						<keyEvent_a id="10002"/>
+						<keyEvent_d id="10003"/>
+						<swipeupEvent id="10004"/>
+						<swipedownEvent id="10005"/>
+						<swipeleftEvent id="10006"/>
+						<swiperightEvent id="10007"/>
+						<playerNpcCollideEvent id="10008"/>
+					</playerView>
+					<animation name="fly" id="40" fps="20" cycle="continuous" imagewidth="2250" imageheight="630" scale="75,70" autoRowCalc="1" rowmap="1,2,3,4,5,6,7,0" currentrow="-1">
+						<animationView id="41" imagename="dragon"></animationView>
+					</animation>
+					<emitter name="fireshooter" id="42" emitNumber="1" maxCount="10">
+						<emitterView id="43">
+							<keyEvent_c id="10010"/>
+							<tapEvent id="10011"/>
+						</emitterView>
+						<particle name="firebullet" id="68" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{[model.parent.parent.direction.x]*40}, {[model.parent.parent.direction.y]*40}" density=".3" delay="2">
+							<particleExplodeAction id="8005">
+								<hide id="7026" targetId="69"/>
+							</particleExplodeAction>
+							<particleView name="firebulletview" id="69" width="16" height="16" imagename="particle" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="2">
+								<particleCollideEvent id="10009"/>
+							</particleView>
+							<!--<animation name="fieryparticle" id="111170" fps="20" cycle="continuous" imagewidth="512" imageheight="1024" scale="64,64" currentrow="4" rowmap="4">
+								<animationView id="11171" imagename="particles2"></animationView>
+							</animation>-->
+						</particle>
+						<emitAction id="8006"><emit id="7010"/></emitAction>
+					</emitter>
+				</player>
+				
+				<emitter name="jetEmitter1" id="2000" emitNumber="1" totalCount="10" maxCount="1" delay="20" cached="true">
+					<jetEmitterView id="2001"></jetEmitterView>
+					<jetThunderchief name="npcModel" id="44" position="-300,-150" scale="20,20">
+						<npcExplodeAction id="8004">
+							<setFn id="0067021" targetId="46" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="7005" targetId="46" targetAttr="currentrow" param1="8"/>
+							<setFn id="7006" targetId="46" targetAttr="animstep" param1="0"/>
+							<setFn id="7030" targetId="10012" targetAttr="listen" param1="0"/>
+							<setFn id="229006" targetId="44" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="8030" targetId="44" targetMetatype="model" targetAttr="goalListen" param1="false"/>
+							<destroy id="77032" delay="1.25" targetMetatype="model" targetId="44"/>
+						</npcExplodeAction>
+						<npcView name="jetView1" id="45" width="45" height="45">
+							<npcCollideEvent id="10012"/>
+						</npcView>
+						<animation name="fly1" id="46" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" autoRowCalc="1" rowmap="1,2,3,4,5,6,7,0">
+							<animationView id="47" imagename="jetThunderchief"></animationView>
+						</animation>
+						<emitter name="jetShooter1" id="100110628000" emitNumber="1" maxCount="1" delay="{Math.random()*12+2}">
+							<jetbullet name="jetBullet1" id="100110628001" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{[model.parent.parent.velocity.x]*2}, {[model.parent.parent.velocity.y]*2}" density=".3" delay="1.5">
+								<particleExplodeAction id="100110628002">
+									<hide id="100110628003" targetId="100110628004"/>
+								</particleExplodeAction>
+								<particleView name="jetBulletView1" id="100110628004" width="12" height="12" imagename="particles1" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="10">
+									<particleCollideEvent id="100110628005"/>
+								</particleView>
+								<animation name="jetBulletAnim1" id="100110628006" fps="20" cycle="continuous" imagewidth="512" imageheight="1024" scale="64,64" currentrow="4" rowmap="4">
+									<animationView id="100110628007" imagename="particles1"/>
+								</animation>
+							</jetbullet>
+						</emitter>
+					</jetThunderchief>
+			</emitter>
+				<emitter name="jetEmitter2" id="2002" emitNumber="1" totalCount="15" maxCount="1" delay="6" cached="true"><jetEmitterView id="2003"></jetEmitterView>
+					<jet name="npcModel" id="48" position="300,-150" scale="20,20">
+						<npcExplodeAction id="8010">
+							<setFn id="1167021" targetId="50" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="7016" targetId="50" targetAttr="currentrow" param1="8"/>
+							<setFn id="7017" targetId="50" targetAttr="animstep" param1="0"/>
+							<setFn id="7031" targetId="10112" targetAttr="listen" param1="0"/>
+							<setFn id="009006" targetId="48" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="8031" targetId="48" targetMetatype="model" targetAttr="goalListen" param1="false"/>
+							<destroy id="87032" delay="1.25" targetMetatype="model" targetId="48"/>
+						</npcExplodeAction>
+						<npcView name="jetView2" id="49" width="45" height="45">
+							<npcCollideEvent id="10112"/>
+						</npcView>
+						<animation name="fly2" id="50" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" autoRowCalc="1" rowmap="1,2,3,4,5,6,7,0">
+							<animationView id="51" imagename="jetFlatpack"></animationView>
+						</animation>
+						<emitter name="jetShooter2" id="200110628000" emitNumber="1" maxCount="1" delay="{Math.random()*12+2}">
+							<jetbullet name="jetBullet2" id="200110628001" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{[model.parent.parent.velocity.x]*2}, {[model.parent.parent.velocity.y]*2}" density=".3" delay="1.5">
+								<particleExplodeAction id="200110628002">
+									<hide id="200110628003" targetId="200110628004"/>
+								</particleExplodeAction>
+								<particleView name="jetBulletView2" id="200110628004" width="12" height="12" imagename="particles1" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="10">
+									<particleCollideEvent id="200110628005"/>
+								</particleView>
+								<animation name="jetBulletAnim2" id="200110628006" fps="20" cycle="continuous" imagewidth="512" imageheight="1024" scale="64,64" currentrow="4" rowmap="4">
+									<animationView id="200110628007" imagename="particles1"/>
+								</animation>
+							</jetbullet>
+						</emitter>
+					</jet>
+				</emitter>
+				<emitter name="jetEmitter3" id="2004" emitNumber="1" totalCount="15" maxCount="2" delay="10" cached="true"><jetEmitterView id="2005"></jetEmitterView>
+					<jetFlankerF name="npcModel" id="52" position="300,150" scale="20,20">
+						<npcExplodeAction id="8011">
+							<setFn id="2267021" targetId="54" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="7023" targetId="54" targetAttr="currentrow" param1="8"/>
+							<setFn id="7024" targetId="54" targetAttr="animstep" param1="0"/>
+							<setFn id="7032" targetId="10013" targetAttr="listen" param1="0"/>
+							<setFn id="889006" targetId="52" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="8032" targetId="52" targetMetatype="model" targetAttr="goalListen" param1="false"/>
+							<destroy id="97032" delay="1.25" targetMetatype="model" targetId="52"/>
+						</npcExplodeAction>
+						<npcView name="jetView3" id="53" width="45" height="45">
+							<npcCollideEvent id="10013"/>
+						</npcView>
+						<animation name="fly3" id="54" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" autoRowCalc="1" rowmap="1,2,3,4,5,6,7,0">
+							<animationView id="55" imagename="jetFlankerF"></animationView>
+						</animation>
+						<emitter name="jetShooter3" id="300110628000" emitNumber="1" maxCount="1" delay="{Math.random()*12+2}">
+							<jetbullet name="jetBullet3" id="300110628001" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{[model.parent.parent.velocity.x]*2}, {[model.parent.parent.velocity.y]*2}" density=".3" delay="1.5">
+								<particleExplodeAction id="300110628002">
+									<hide id="300110628003" targetId="300110628004"/>
+								</particleExplodeAction>
+								<particleView name="jetBulletView3" id="300110628004" width="12" height="12" imagename="particles1" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="10">
+									<particleCollideEvent id="300110628005"/>
+								</particleView>
+								<animation name="jetBulletAnim3" id="300110628006" fps="20" cycle="continuous" imagewidth="512" imageheight="1024" scale="64,64" currentrow="4" rowmap="4">
+									<animationView id="300110628007" imagename="particles1"/>
+								</animation>
+							</jetbullet>
+						</emitter>
+					</jetFlankerF>
+			</emitter>
+				<emitter name="jetEmitter4" id="2006" emitNumber="1" totalCount="15" maxCount="1" delay="3" cached="true"><jetEmitterView id="2007"></jetEmitterView>
+					<jet name="npcModel" id="56" position="-300,150" scale="20,20">
+						<npcExplodeAction id="8012">
+							<setFn id="3367021" targetId="58" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="7020" targetId="58" targetAttr="currentrow" param1="8"/>
+							<setFn id="7021" targetId="58" targetAttr="animstep" param1="0"/>
+							<setFn id="7033" targetId="10014" targetAttr="listen" param1="0"/>
+							<setFn id="559006" targetId="56" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="8033" targetId="56" targetMetatype="model" targetAttr="goalListen" param1="false"/>
+							<destroy id="57032" delay="1.25" targetMetatype="model" targetId="56"/>
+						</npcExplodeAction>
+						<npcView name="jetView4" id="57" width="45" height="45">
+							<npcCollideEvent id="10014"/>
+						</npcView>
+						<animation name="fly4" id="58" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" autoRowCalc="1" rowmap="1,2,3,4,5,6,7,0">
+							<animationView id="59" imagename="jetFlatpack"></animationView>
+						</animation>
+						<emitter name="jetShooter4" id="400110628000" emitNumber="1" maxCount="1" delay="{Math.random()*12+2}">
+							<jetbullet name="jetBullet4" id="400110628001" restitution=".8" position="[model.parent.parent.position.x],[model.parent.parent.position.y]" velocity="{[model.parent.parent.velocity.x]*2}, {[model.parent.parent.velocity.y]*2}" density=".3" delay="1.5">
+								<particleExplodeAction id="400110628002">
+									<hide id="400110628003" targetId="400110628004"/>
+								</particleExplodeAction>
+								<particleView name="jetBulletView4" id="400110628004" width="12" height="12" imagename="particles1" x="[model.screenPosition.x]" y="[model.screenPosition.y]" zIndex="10">
+									<particleCollideEvent id="400110628005"/>
+								</particleView>
+								<animation name="jetBulletAnim4" id="400110628006" fps="20" cycle="continuous" imagewidth="512" imageheight="1024" scale="64,64" currentrow="4" rowmap="4">
+									<animationView id="400110628007" imagename="particles1"/>
+								</animation>
+							</jetbullet>
+						</emitter>
+					</jet>
+				</emitter>
+				<emitter name="stealthBomber1" id="00112006" emitNumber="1" totalCount="8" maxCount="1" delay="15" cached="true">
+					<jetEmitterView id="00112007"></jetEmitterView>
+					<stealthBomber name="stealthBomberModel1" id="001156" position="{-800},{(Math.random()*800)-400}" velocity="{20},{(Math.random()*8)-4}" scale="20,20" delay="15">
+						<npcExplodeAction id="00118012">
+							<setFn id="00117021" targetId="00114458" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="00117020" targetId="00114458" targetAttr="currentrow" param1="8"/>
+							<setFn id="00117055" targetId="00114458" targetAttr="animstep" param1="0"/>
+							<setFn id="00117033" targetId="00110014" targetAttr="listen" param1="0"/>
+							<setFn id="00119006" targetId="001156" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="00118033" targetId="001156" targetAttr="goal" param1=""/>
+							<destroy id="00117032" delay="1.25" targetMetatype="model" targetId="001156"/>
+						</npcExplodeAction>
+						<npcView name="stealthBomberView1" id="001157" width="45" height="45">
+							<npcCollideEvent id="00110014"/>
+						</npcView>
+						<animation name="fly5" id="00114458" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" currentrow="0">
+							<animationView id="00114459" imagename="stealthBomber"></animationView>
+						</animation>
+					</stealthBomber>
+				</emitter>
+				<emitter name="stealthBomber2" id="90112006" emitNumber="1" totalCount="8" maxCount="1" delay="15" cached="true">
+					<jetEmitterView id="90112007"></jetEmitterView>
+					<stealthBomber name="stealthBomberModel2" id="901156" position="{800},{(Math.random()*800)-400}" velocity="{-20},{(Math.random()*8)-4}" scale="20,20" delay="15">
+						<npcExplodeAction id="90118012">
+							<setFn id="90117021" targetId="90114458" targetAttr="autoRowCalc" param1="0"/>
+							<setFn id="90117020" targetId="90114458" targetAttr="currentrow" param1="8"/>
+							<setFn id="90117055" targetId="90114458" targetAttr="animstep" param1="0"/>
+							<setFn id="90117033" targetId="90110014" targetAttr="listen" param1="0"/>
+							<setFn id="90119006" targetId="901156" targetAttr="angularImpulse" param1="0"/>
+							<setFn id="90118033" targetId="901156" targetAttr="goal" param1=""/>
+							<destroy id="90117032" delay="1.25" targetMetatype="model" targetId="901156"/>
+						</npcExplodeAction>
+						<npcView name="stealthBomberView2" id="901157" width="45" height="45">
+							<npcCollideEvent id="90110014"/>
+						</npcView>
+						<animation name="fly6" id="90114458" fps="10" cycle="continuous" imagewidth="900" imageheight="405" scale="45,45" currentrow="4">
+							<animationView id="90114459" imagename="stealthBomber"></animationView>
+						</animation>
+					</stealthBomber>
+				</emitter>
+			</level>
+		</game>
+	</data>
+</root>
+
+
