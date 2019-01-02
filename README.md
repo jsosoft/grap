@@ -14,13 +14,9 @@ One of the *great* advantages of GRAP is that if you do extend it, any new funct
 <h3>Extensible</h3>
 Dynamic references can be defined in the XML data, so complex relationships can be established without coding.  In-line JavaScript functions are also allowed but they are compiled into functions on start-up so there are no runtime evals.  Additionally, GRAP follows the MVC design pattern so new classes can be easily added if existing functionality does not suit the developer's needs.
 <h3>Demo</h3>
-View a demonstration of some of the features in GRAP <a title="GRAP Demo" href="http://www.jsosoft.com/grap_demo/">here</a>.
-
-...
+View a demonstration of some of the features in GRAP at <a href="https://www.jsosoft.com/dev/grap-automated-gaming-framework/">https://www.jsosoft.com/dev/grap-automated-gaming-framework/</a>
 
 The GRAP Framework was an experimental project, there are no plans for further development at this time.
-
-View a demonstration of some of the features in GRAP at <a href="https://www.jsosoft.com/dev/grap-automated-gaming-framework/">https://www.jsosoft.com/dev/grap-automated-gaming-framework/</a>
 
 For updates and currents regarding JSO Software's current projects please visit <a href="http://jsosoft.com/dev">http://jsosoft.com/dev</a>
 
