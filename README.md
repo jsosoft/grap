@@ -18,7 +18,7 @@ View a demonstration of some of the features in GRAP <a title="GRAP Demo" href=
 
 ...
 
-The GRAP Framework is under active development. Please check back soon for updates to the demo on this site, more documentation and new demos.
+The GRAP Framework was an experimental project, there are no plans for further development at this time.
 
 View a demonstration of some of the features in GRAP at <a href="https://www.jsosoft.com/dev/grap-automated-gaming-framework/">https://www.jsosoft.com/dev/grap-automated-gaming-framework/</a>
 
